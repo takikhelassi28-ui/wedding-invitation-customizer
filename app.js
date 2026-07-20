@@ -271,8 +271,25 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-     5. Theme Selection Logic
+     5. Theme Selection & Floral Logic
      -------------------------------------------------------------------------- */
+  const selectFloralStyle = document.getElementById('select-floral-style');
+
+  function updateFloralStyle() {
+    if (!selectFloralStyle) return;
+    const style = selectFloralStyle.value;
+    document.body.classList.remove('show-floral-watercolor', 'show-floral-gold');
+    if (style === 'watercolor') {
+      document.body.classList.add('show-floral-watercolor');
+    } else if (style === 'gold') {
+      document.body.classList.add('show-floral-gold');
+    }
+  }
+
+  if (selectFloralStyle) {
+    selectFloralStyle.addEventListener('change', updateFloralStyle);
+  }
+
   themeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       themeBtns.forEach(b => b.classList.remove('active'));
@@ -289,6 +306,16 @@ document.addEventListener('DOMContentLoaded', () => {
         clearCustomColors();
       }
 
+      // Auto-switch floral style preset based on chosen theme
+      if (selectFloralStyle) {
+        if (theme === 'cream') {
+          selectFloralStyle.value = 'watercolor';
+        } else if (theme === 'emerald' || theme === 'sage' || theme === 'plum') {
+          selectFloralStyle.value = 'gold';
+        }
+        updateFloralStyle();
+      }
+
       cards.forEach(card => {
         card.setAttribute('data-theme', theme);
       });
@@ -299,11 +326,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-     5. Initialization
+     6. Initialization
      -------------------------------------------------------------------------- */
   updateCrests();
   syncTextBindings();
   updateQRCode();
+  updateFloralStyle();
 });
 
 /* --------------------------------------------------------------------------

@@ -264,6 +264,62 @@ body {
   border: 1px solid var(--ui-accent);
 }
 
+/* Dynamic Watercolor & Gold Foil Floral Borders */
+.floral-watercolor-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background-image: url('watercolor_wildflowers.jpg');
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+  display: none;
+  opacity: 0.95;
+}
+
+.floral-gold-border {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 90px;
+  pointer-events: none;
+  z-index: 1;
+  display: none;
+  opacity: 0.85;
+}
+
+.gold-botanical-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Card-specific height adjustments for florals */
+.format-35x5 .floral-watercolor-border,
+.format-35x5 .floral-gold-border {
+  height: 60px;
+}
+
+.format-evite .floral-watercolor-border,
+.format-evite .floral-gold-border {
+  height: 160px;
+}
+
+/* Body toggles */
+body.show-floral-watercolor .floral-watercolor-border {
+  display: block;
+}
+
+body.show-floral-gold .floral-gold-border {
+  display: block;
+}
+
 .sidebar-footer {
   margin-top: auto;
   padding-top: 24px;
