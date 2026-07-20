@@ -521,17 +521,22 @@ body {
   text-transform: uppercase;
 }
 
-/* Vintage Divider */
+/* Vintage Divider (Floral Ornament Layout) */
 .vintage-divider {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--card-gold), rgba(0, 0, 0, 0));
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 60%;
-  margin-bottom: 24px;
+  margin: 0 auto 24px auto;
+  border: none;
+  height: 20px;
 }
 
-.stationery-card[data-theme="emerald"] .vintage-divider {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--card-gold), rgba(0, 0, 0, 0));
+.vintage-divider-svg {
+  width: 100%;
+  height: 20px;
+  max-width: 200px;
+  display: block;
 }
 
 .wedding-datetime {

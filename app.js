@@ -65,33 +65,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return `
       <svg class="crest-svg" viewBox="0 0 100 100" width="${size}" height="${size}" fill="none" stroke="currentColor">
-        <!-- Outer double ring with dashed detailing -->
-        <circle cx="50" cy="50" r="44" stroke-width="${strokeWidth1}" />
-        <circle cx="50" cy="50" r="41" stroke-width="${strokeWidth2}" stroke-dasharray="2 1.5" />
+        <!-- Outer delicate circular stems with floral buds -->
+        <circle cx="50" cy="50" r="44" stroke-width="${strokeWidth1}" stroke-dasharray="1 3" />
         
-        <!-- Intricate Laurel Leaves Branches Left -->
-        <path d="M 23,50 C 23,34 33,21 47,19" stroke-width="${strokeWidth1}" />
-        <path d="M 23,50 C 23,66 33,79 47,81" stroke-width="${strokeWidth1}" />
+        <!-- Left Stem branch -->
+        <path d="M 50,88 C 25,88 14,70 14,50 C 14,30 25,12 50,12" stroke-width="${strokeWidth1}" />
         
-        <!-- Intricate Laurel Leaves Branches Right -->
-        <path d="M 77,50 C 77,34 67,21 53,19" stroke-width="${strokeWidth1}" />
-        <path d="M 77,50 C 77,66 67,79 53,81" stroke-width="${strokeWidth1}" />
+        <!-- Right Stem branch -->
+        <path d="M 50,88 C 75,88 86,70 86,50 C 86,30 75,12 50,12" stroke-width="${strokeWidth1}" />
         
-        <!-- Laurel Leaf Accents Left -->
-        <path d="M 24,44 C 21,42 19,44 21,47 Z" fill="currentColor" stroke="none" />
-        <path d="M 27,33 C 24,31 22,34 24,37 Z" fill="currentColor" stroke="none" />
-        <path d="M 33,24 C 30,22 29,25 31,28 Z" fill="currentColor" stroke="none" />
-        <path d="M 42,18 C 40,16 38,19 40,22 Z" fill="currentColor" stroke="none" />
+        <!-- Floral elements & Leaves: Left -->
+        <!-- Leaf 1 -->
+        <path d="M 14,50 Q 8,46 11,42 Q 15,46 14,50" fill="currentColor" stroke="none" />
+        <!-- Little Flower 1 -->
+        <circle cx="16" cy="42" r="1.5" fill="currentColor" stroke="none" />
+        <!-- Leaf 2 -->
+        <path d="M 18,34 Q 12,31 14,27 Q 19,30 18,34" fill="currentColor" stroke="none" />
+        <!-- Little Flower 2 -->
+        <circle cx="21" cy="27" r="1.5" fill="currentColor" stroke="none" />
+        <!-- Leaf 3 -->
+        <path d="M 26,22 Q 21,17 23,13 Q 28,17 26,22" fill="currentColor" stroke="none" />
+        <!-- Little Flower 3 -->
+        <circle cx="30" cy="17" r="1.5" fill="currentColor" stroke="none" />
+        <!-- Leaf 4 -->
+        <path d="M 37,14 Q 34,8 37,4 Q 40,9 37,14" fill="currentColor" stroke="none" />
         
-        <!-- Laurel Leaf Accents Right -->
-        <path d="M 76,44 C 79,42 81,44 79,47 Z" fill="currentColor" stroke="none" />
-        <path d="M 73,33 C 76,31 78,34 76,37 Z" fill="currentColor" stroke="none" />
-        <path d="M 67,24 C 70,22 71,25 69,28 Z" fill="currentColor" stroke="none" />
-        <path d="M 58,18 C 60,16 62,19 60,22 Z" fill="currentColor" stroke="none" />
-        
-        <!-- Bottom Classic Ornament Ribbon -->
-        <path d="M 32,83 C 44,87 56,87 68,83" stroke-width="${strokeWidth1 * 1.5}" />
-        <circle cx="50" cy="85" r="2.5" fill="currentColor" stroke="none" />
+        <!-- Floral elements & Leaves: Right -->
+        <!-- Leaf 1 -->
+        <path d="M 86,50 Q 92,46 89,42 Q 85,46 86,50" fill="currentColor" stroke="none" />
+        <!-- Little Flower 1 -->
+        <circle cx="84" cy="42" r="1.5" fill="currentColor" stroke="none" />
+        <!-- Leaf 2 -->
+        <path d="M 82,34 Q 88,31 86,27 Q 81,30 82,34" fill="currentColor" stroke="none" />
+        <!-- Little Flower 2 -->
+        <circle cx="79" cy="27" r="1.5" fill="currentColor" stroke="none" />
+        <!-- Leaf 3 -->
+        <path d="M 74,22 Q 79,17 77,13 Q 72,17 74,22" fill="currentColor" stroke="none" />
+        <!-- Little Flower 3 -->
+        <circle cx="70" cy="17" r="1.5" fill="currentColor" stroke="none" />
+        <!-- Leaf 4 -->
+        <path d="M 63,14 Q 66,8 63,4 Q 60,9 63,14" fill="currentColor" stroke="none" />
+
+        <!-- Bottom classic floral ribbon tie -->
+        <path d="M 44,87 Q 50,91 56,87" stroke-width="${strokeWidth1}" />
+        <circle cx="50" cy="88" r="2" fill="currentColor" stroke="none" />
+        <path d="M 50,88 Q 45,95 40,94 M 50,88 Q 55,95 60,94" stroke-width="${strokeWidth1}" />
 
         <!-- Custom Monogram initials inside the Crest -->
         <text x="50" y="47" font-family="'Playfair Display', serif" font-size="24" font-style="italic" font-weight="400" text-anchor="middle" stroke="none" fill="currentColor">${initial1}</text>
