@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etsy Seller Stationer - Luxury Wedding Suite Customizer</title>
+  <!-- Google Fonts for Luxury Editorial Old Money Vibes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="customizer-app">
+
+  <!-- Main App Container -->
+  <div class="app-container">
+    
+    <!-- Sidebar Control Panel -->
+    <aside class="sidebar-panel">
+      <div class="sidebar-header">
+        <div class="brand-crest">
+          <svg viewBox="0 0 100 100" class="brand-crest-mini">
+            <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="0.75" fill="none"/>
+            <text x="50" y="55" font-family="'Cormorant Garamond', serif" font-size="28" font-style="italic" text-anchor="middle" fill="currentColor">H</text>
+          </svg>
+        </div>
+        <div>
+          <h1>HÉLÈNE & CO.</h1>
+          <p class="subtitle">Wedding Suite Customizer</p>
+        </div>
+      </div>
+
+      <!-- Controls Form -->
+      <form id="customizer-form" class="customizer-form">
+        
+        <!-- Section: Themes & Global Settings -->
+        <div class="form-section">
+          <h3>Design Theme</h3>
+          <div class="theme-selector">
+            <button type="button" class="theme-btn active" data-theme="cream">
+              <span class="color-preview cream-bg"></span> Old Money Cream
+            </button>
+            <button type="button" class="theme-btn" data-theme="emerald">
+              <span class="color-preview emerald-bg"></span> Dark Emerald
+            </button>
+          </div>
+          <div class="form-group margin-top-sm">
+            <label for="input-monogram-first">Monogram Initial 1</label>
+            <input type="text" id="input-monogram-first" value="H" maxlength="1" class="text-input uppercase-input">
+          </div>
+          <div class="form-group">
+            <label for="input-monogram-second">Monogram Initial 2</label>
+            <input type="text" id="input-monogram-second" value="W" maxlength="1" class="text-input uppercase-input">
+          </div>
+          <div class="form-group">
+            <label for="input-year">Est. Year (Roman Numerals)</label>
+            <input type="text" id="input-year" value="MMXXVI" class="text-input">
+          </div>
+        </div>
+
+        <!-- Section: Bride & Groom -->
+        <div class="form-section">
+          <h3>The Couple</h3>
+          <div class="form-group">
+            <label for="input-bride-name">Bride's Full Name</label>
+            <input type="text" id="input-bride-name" value="HÉLÈNE ADELAIDE DEVERAUX" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-groom-name">Groom's Full Name</label>
+            <input type="text" id="input-groom-name" value="WILLIAM WENTWORTH ASTOR" class="text-input">
+          </div>
+        </div>
+
+        <!-- Section: Wedding Details -->
+        <div class="form-section">
+          <h3>Ceremony & Reception Details</h3>
+          <div class="form-group">
+            <label for="input-wedding-date">Date Wording</label>
+            <input type="text" id="input-wedding-date" value="Saturday, the twelfth of September" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-wedding-year-words">Year Wording</label>
+            <input type="text" id="input-wedding-year-words" value="Two thousand and twenty-six" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-wedding-time">Time Wording</label>
+            <input type="text" id="input-wedding-time" value="at four o'clock in the afternoon" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-venue-name">Venue Name</label>
+            <input type="text" id="input-venue-name" value="THE DEVERAUX ESTATE" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-venue-address">Venue Location</label>
+            <input type="text" id="input-venue-address" value="Newport, Rhode Island" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-reception-text">Reception Text</label>
+            <input type="text" id="input-reception-text" value="Reception to follow immediately" class="text-input">
+          </div>
+        </div>
+
+        <!-- Section: Save The Date Details -->
+        <div class="form-section">
+          <h3>Save The Date Settings</h3>
+          <div class="form-group">
+            <label for="input-std-date">Date Format (Short)</label>
+            <input type="text" id="input-std-date" value="09.12.2026" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-std-photo">Photo Placeholder Text</label>
+            <input type="text" id="input-std-photo" value="[ Insert Couple's Portrait Here ]" class="text-input">
+          </div>
+        </div>
+
+        <!-- Section: RSVP Details -->
+        <div class="form-section">
+          <h3>RSVP Details</h3>
+          <div class="form-group">
+            <label for="input-rsvp-deadline">Respond By Date</label>
+            <input type="text" id="input-rsvp-deadline" value="August first, two thousand twenty-six" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-rsvp-qr-url">Digital RSVP URL (QR Code)</label>
+            <input type="text" id="input-rsvp-qr-url" value="https://helene-and-william.wedding" class="text-input">
+          </div>
+        </div>
+
+        <!-- Section: Details & Accommodations -->
+        <div class="form-section">
+          <h3>Details & Travel Info</h3>
+          <div class="form-group">
+            <label for="input-details-hotel">Hotel Blocks Info</label>
+            <textarea id="input-details-hotel" class="text-area-input" rows="3">A block of suites has been reserved at The Chanler at Cliff Walk. Please request the Deveraux-Astor Wedding Room Block by July first.</textarea>
+          </div>
+          <div class="form-group">
+            <label for="input-details-travel">Travel Info</label>
+            <textarea id="input-details-travel" class="text-area-input" rows="3">For guests arriving by air, Boston Logan International Airport is ninety minutes north. Car rentals and private drivers are available.</textarea>
+          </div>
+          <div class="form-group">
+            <label for="input-details-dress">Dress Code</label>
+            <input type="text" id="input-details-dress" value="Black Tie Optional" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-details-website">Wedding Website</label>
+            <input type="text" id="input-details-website" value="www.heleneandwilliam.wedding" class="text-input">
+          </div>
+        </div>
+
+        <!-- Section: Thank You Card -->
+        <div class="form-section">
+          <h3>Thank You Message</h3>
+          <div class="form-group">
+            <label for="input-thanks-message">Gratitude Wording</label>
+            <textarea id="input-thanks-message" class="text-area-input" rows="4">With our deepest gratitude, we thank you for sharing in our celebration. Your presence and warm wishes made our wedding day truly unforgettable.</textarea>
+          </div>
+        </div>
+      </form>
+      <div class="sidebar-footer">
+        <p>&copy; 2026 Hélène & Co. Designed for premium Etsy sellers.</p>
+      </div>
+    </aside>
+
+    <!-- Main Workspace (Design Previews) -->
+    <main class="workspace-area">
+      <header class="workspace-header">
+        <h2>Design Workspace Preview</h2>
+        <div class="actions">
+          <button type="button" class="action-btn primary-btn" onclick="window.print()">Print Entire Suite (PDF)</button>
+        </div>
+      </header>
+
+      <!-- Previews Grid -->
+      <div class="previews-grid" id="previews-container">
+        
+        <!-- Piece 1: Main Wedding Invitation -->
+        <section class="card-preview-section" id="print-invitation">
+          <div class="card-header-bar">
+            <h4>1. Main Wedding Invitation (5" x 7")</h4>
+            <button class="print-card-btn" onclick="printSingleCard('print-invitation')">Print Card</button>
+          </div>
+          <div class="stationery-card invitation-card format-5x7" data-theme="cream">
+            <div class="card-border-outer">
+              <div class="card-border-inner">
+                <!-- Crest Monogram -->
+                <div class="crest-container">
+                  <!-- Custom Monogram SVG inserted dynamically -->
+                </div>
+                
+                <p class="section-title">TOGETHER WITH THEIR FAMILIES</p>
+                
+                <h2 class="couple-names">
+                  <span class="bind-bride-name">HÉLÈNE ADELAIDE DEVERAUX</span>
+                  <span class="and-symbol">&amp;</span>
+                  <span class="bind-groom-name">WILLIAM WENTWORTH ASTOR</span>
+                </h2>
+                
+                <p class="request-text">REQUEST THE HONOR OF YOUR PRESENCE<br>AT THEIR WEDDING CELEBRATION</p>
+                
+                <hr class="vintage-divider">
+                
+                <div class="wedding-datetime">
+                  <p class="date bind-wedding-date">Saturday, the twelfth of September</p>
+                  <p class="year bind-wedding-year-words">Two thousand and twenty-six</p>
+                  <p class="time bind-wedding-time">at four o'clock in the afternoon</p>
+                </div>
+                
+                <div class="wedding-location">
+                  <h3 class="venue-name bind-venue-name">THE DEVERAUX ESTATE</h3>
+                  <p class="venue-address bind-venue-address">Newport, Rhode Island</p>
+                </div>
+                
+                <hr class="vintage-divider">
+                
+                <p class="reception-text bind-reception-text">Reception to follow immediately</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Piece 2: Save The Date -->
+        <section class="card-preview-section" id="print-save-the-date">
+          <div class="card-header-bar">
+            <h4>2. Save The Date (5" x 7")</h4>
+            <button class="print-card-btn" onclick="printSingleCard('print-save-the-date')">Print Card</button>
+          </div>
+          <div class="stationery-card save-the-date-card format-5x7" data-theme="cream">
+            <div class="card-border-outer">
+              <div class="card-border-inner">
+                <div class="crest-container"></div>
+                
+                <p class="section-title tracking-wide">SAVE THE DATE</p>
+                
+                <h2 class="couple-names-mini">
+                  <span class="bind-bride-first">HÉLÈNE</span> & <span class="bind-groom-first">WILLIAM</span>
+                </h2>
+                
+                <!-- Photo placeholder frame -->
+                <div class="photo-placeholder-frame">
+                  <div class="photo-inner">
+                    <span class="bind-std-photo">[ Insert Couple's Portrait Here ]</span>
+                  </div>
+                </div>
+
+                <div class="date-showcase bind-std-date">09.12.2026</div>
+                
+                <p class="location-words bind-venue-address">Newport, Rhode Island</p>
+                
+                <p class="follow-text">FORMAL INVITATION TO FOLLOW</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Piece 3: RSVP Card -->
+        <section class="card-preview-section" id="print-rsvp">
+          <div class="card-header-bar">
+            <h4>3. RSVP Card (3.5" x 5")</h4>
+            <button class="print-card-btn" onclick="printSingleCard('print-rsvp')">Print Card</button>
+          </div>
+          <div class="stationery-card rsvp-card format-35x5" data-theme="cream">
+            <div class="card-border-outer">
+              <div class="card-border-inner">
+                <div class="crest-container"></div>
+                
+                <h2 class="card-title">Kindly Respond</h2>
+                <p class="deadline-text">BY <span class="bind-rsvp-deadline uppercase">August first, two thousand twenty-six</span></p>
+                
+                <div class="rsvp-form-lines">
+                  <div class="rsvp-line flex-line">
+                    <span class="prefix">M</span>
+                    <span class="dotted-underline flex-grow"></span>
+                  </div>
+                  
+                  <div class="rsvp-options">
+                    <div class="rsvp-option"><span class="checkbox-box"></span> Accepts with pleasure</div>
+                    <div class="rsvp-option"><span class="checkbox-box"></span> Declines with regret</div>
+                  </div>
+                  
+                  <div class="rsvp-line">
+                    <span class="prefix">DIETARY RESTRICTIONS</span>
+                    <span class="dotted-underline"></span>
+                  </div>
+                </div>
+
+                <!-- QR Code Frame for digital RSVP -->
+                <div class="rsvp-qr-container">
+                  <div class="qr-label">Or RSVP Digitally</div>
+                  <div class="qr-frame">
+                    <img id="rsvp-qr-code" class="qr-code-img" src="" alt="Digital RSVP QR Code">
+                  </div>
+                  <div class="qr-url bind-rsvp-qr-url">https://helene-and-william.wedding</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Piece 4: Details & Accommodations -->
+        <section class="card-preview-section" id="print-details">
+          <div class="card-header-bar">
+            <h4>4. Details & Accommodations (4" x 6")</h4>
+            <button class="print-card-btn" onclick="printSingleCard('print-details')">Print Card</button>
+          </div>
+          <div class="stationery-card details-card format-4x6" data-theme="cream">
+            <div class="card-border-outer">
+              <div class="card-border-inner">
+                <h2 class="card-title-serif">Details</h2>
+                <hr class="thin-gold-line">
+                
+                <div class="details-section">
+                  <h4>ACCOMMODATIONS</h4>
+                  <p class="bind-details-hotel">A block of suites has been reserved at The Chanler at Cliff Walk. Please request the Deveraux-Astor Wedding Room Block by July first.</p>
+                </div>
+
+                <div class="details-section">
+                  <h4>TRAVEL & ARRIVAL</h4>
+                  <p class="bind-details-travel">For guests arriving by air, Boston Logan International Airport is ninety minutes north. Car rentals and private drivers are available.</p>
+                </div>
+
+                <div class="details-section">
+                  <div class="dress-code-box">
+                    <h4>DRESS CODE</h4>
+                    <p class="bind-details-dress italic-serif">Black Tie Optional</p>
+                  </div>
+                </div>
+
+                <div class="details-section website-section">
+                  <p class="website-intro">For further details & registry, please visit:</p>
+                  <p class="website-url bind-details-website">www.heleneandwilliam.wedding</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Piece 5: Digital Mobile Evite -->
+        <section class="card-preview-section" id="print-evite">
+          <div class="card-header-bar">
+            <h4>5. Digital Mobile Evite (1080px x 1920px - 9:16)</h4>
+            <button class="print-card-btn" onclick="printSingleCard('print-evite')">Print Card</button>
+          </div>
+          <div class="stationery-card evite-card format-evite" data-theme="cream">
+            <div class="card-border-outer">
+              <div class="card-border-inner">
+                <div class="crest-container"></div>
+                
+                <p class="section-title">YOU ARE INVITED TO THE WEDDING OF</p>
+                
+                <h1 class="couple-names-evite">
+                  <span class="bind-bride-first">HÉLÈNE</span>
+                  <span class="and-symbol">&amp;</span>
+                  <span class="bind-groom-first">WILLIAM</span>
+                </h1>
+
+                <hr class="vintage-divider">
+
+                <div class="evite-details">
+                  <div class="detail-block">
+                    <p class="date bind-std-date">09.12.2026</p>
+                    <p class="time bind-wedding-time">at four o'clock</p>
+                  </div>
+                  
+                  <div class="detail-block">
+                    <h3 class="venue-name bind-venue-name">THE DEVERAUX ESTATE</h3>
+                    <p class="venue-address bind-venue-address">Newport, Rhode Island</p>
+                  </div>
+
+                  <div class="detail-block dress-block">
+                    <span class="dress-label">DRESS CODE</span>
+                    <span class="dress-val bind-details-dress">Black Tie Optional</span>
+                  </div>
+                </div>
+
+                <hr class="vintage-divider">
+
+                <div class="evite-actions">
+                  <p class="rsvp-prompt">To RSVP digitally, scan or visit:</p>
+                  <p class="website-url bind-details-website">www.heleneandwilliam.wedding</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Piece 6: Printable Thank You Card -->
+        <section class="card-preview-section" id="print-thank-you">
+          <div class="card-header-bar">
+            <h4>6. Printable Thank You Card (4" x 6")</h4>
+            <button class="print-card-btn" onclick="printSingleCard('print-thank-you')">Print Card</button>
+          </div>
+          <div class="stationery-card thank-you-card format-4x6" data-theme="cream">
+            <div class="card-border-outer">
+              <div class="card-border-inner">
+                <div class="crest-container"></div>
+                
+                <h2 class="card-title-serif">Thank You</h2>
+                <hr class="thin-gold-line">
+                
+                <div class="thank-you-body">
+                  <p class="bind-thanks-message">With our deepest gratitude, we thank you for sharing in our celebration. Your presence and warm wishes made our wedding day truly unforgettable.</p>
+                </div>
+
+                <div class="monogram-initials-sig bind-year">
+                  MMXXVI
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Piece 7: Standalone Crest Asset -->
+        <section class="card-preview-section" id="print-crest-standalone">
+          <div class="card-header-bar">
+            <h4>7. Standalone Monogram & Crest Asset</h4>
+            <button class="print-card-btn" onclick="printSingleCard('print-crest-standalone')">Print Asset</button>
+          </div>
+          <div class="stationery-card crest-standalone-card format-4x6" data-theme="cream">
+            <div class="card-border-outer">
+              <div class="card-border-inner flex-center">
+                <div class="crest-large-display">
+                  <!-- Large Monogram Crest SVG Rendered here -->
+                </div>
+                <div class="asset-info">
+                  <h3>Elegant Monogram Crest</h3>
+                  <p>Custom vector SVG layout. Ideal for wax seals, menus, envelopes, or custom postage stamps.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- JavaScript logic -->
+  <script src="app.js"></script>
+</body>
+</html>

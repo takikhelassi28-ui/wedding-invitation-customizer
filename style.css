@@ -1,0 +1,984 @@
+/* ==========================================================================
+   Etsy Seller Stationer - Luxury Wedding Suite Customizer Stylesheet
+   Theme: Old Money / Dark Romantic Luxury Stationery
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Reset & Variables
+   -------------------------------------------------------------------------- */
+:root {
+  /* Workspace UI Colors (Modern Sleek Dark Studio) */
+  --ui-bg: #121416;
+  --ui-sidebar-bg: rgba(22, 26, 30, 0.85);
+  --ui-border: rgba(255, 255, 255, 0.08);
+  --ui-text: #e1e7ed;
+  --ui-text-muted: #8a99a8;
+  --ui-accent: #bda26c; /* Soft Antique Gold */
+  --ui-accent-hover: #d4af37;
+  --ui-glass-bg: rgba(255, 255, 255, 0.03);
+  --ui-glass-border: rgba(255, 255, 255, 0.05);
+
+  /* Theme 1: Old Money Cream (Default Variables for Cards) */
+  --card-bg: #FDFBF7;
+  --card-primary: #4A0E17;  /* Deep Burgundy */
+  --card-secondary: #222222;/* Muted Charcoal */
+  --card-gold: #D4AF37;     /* Warm Gold */
+  --card-accent: #F4EFEA;   /* Soft Parchment */
+  --card-border-width: 1px;
+}
+
+/* Color Tokens for Toggles */
+.cream-bg { background-color: #FDFBF7; border: 1px solid #4A0E17; }
+.emerald-bg { background-color: #0F2A1D; border: 1px solid #D4AF37; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--ui-bg);
+  color: var(--ui-text);
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   2. Workspace & App Layout
+   -------------------------------------------------------------------------- */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar-panel {
+  width: 380px;
+  background-color: var(--ui-sidebar-bg);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid var(--ui-border);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-panel::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-panel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--ui-border);
+  padding-bottom: 20px;
+}
+
+.brand-crest-mini {
+  width: 48px;
+  height: 48px;
+  color: var(--ui-accent);
+}
+
+.sidebar-header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.sidebar-header .subtitle {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--ui-text-muted);
+  text-transform: uppercase;
+}
+
+/* Form Styles */
+.customizer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-section {
+  background: var(--ui-glass-bg);
+  border: 1px solid var(--ui-glass-border);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.form-section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: var(--ui-accent);
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: var(--ui-text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.text-input, .text-area-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--ui-border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.text-input:focus, .text-area-input:focus {
+  outline: none;
+  border-color: var(--ui-accent);
+  box-shadow: 0 0 0 2px rgba(189, 162, 108, 0.2);
+}
+
+.text-area-input {
+  resize: vertical;
+}
+
+.uppercase-input {
+  text-transform: uppercase;
+}
+
+.margin-top-sm {
+  margin-top: 10px;
+}
+
+/* Theme Selector Buttons */
+.theme-selector {
+  display: flex;
+  gap: 12px;
+}
+
+.theme-btn {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--ui-border);
+  color: var(--ui-text-muted);
+  padding: 10px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-btn:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.theme-btn.active {
+  border-color: var(--ui-accent);
+  background: rgba(189, 162, 108, 0.1);
+  color: #fff;
+}
+
+.color-preview {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--ui-border);
+  font-size: 10px;
+  text-align: center;
+  color: var(--ui-text-muted);
+}
+
+/* Workspace Area */
+.workspace-area {
+  margin-left: 380px;
+  flex: 1;
+  padding: 40px;
+  background-color: #171a1d;
+  min-height: 100vh;
+}
+
+.workspace-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--ui-border);
+  padding-bottom: 15px;
+}
+
+.workspace-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.action-btn {
+  background-color: var(--ui-accent);
+  color: #121416;
+  border: none;
+  padding: 12px 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background-color: var(--ui-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+/* Previews Grid */
+.previews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 40px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Stationery Card Container & Headers
+   -------------------------------------------------------------------------- */
+.card-preview-section {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ui-sidebar-bg);
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  align-items: center;
+}
+
+.card-header-bar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--ui-border);
+  padding-bottom: 10px;
+}
+
+.card-header-bar h4 {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ui-text-muted);
+}
+
+.print-card-btn {
+  background: transparent;
+  border: 1px solid var(--ui-accent);
+  color: var(--ui-accent);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  padding: 6px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.print-card-btn:hover {
+  background: var(--ui-accent);
+  color: #121416;
+}
+
+/* --------------------------------------------------------------------------
+   4. Core Stationery Card Design System
+   -------------------------------------------------------------------------- */
+.stationery-card {
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  user-select: none;
+  background-color: var(--card-bg);
+  color: var(--card-primary);
+}
+
+/* Custom Themes */
+.stationery-card[data-theme="cream"] {
+  --card-bg: #FDFBF7;
+  --card-primary: #4A0E17;
+  --card-secondary: #222222;
+  --card-gold: #D4AF37;
+  --card-accent: #F4EFEA;
+}
+
+.stationery-card[data-theme="emerald"] {
+  --card-bg: #0F2A1D;
+  --card-primary: #D4AF37;
+  --card-secondary: #FDFBF7;
+  --card-gold: #D4AF37;
+  --card-accent: #173b2a;
+}
+
+/* Aspect Ratio Sizes (Base dimensions mapped via scale properties) */
+.format-5x7 {
+  width: 500px;
+  height: 700px;
+}
+
+.format-35x5 {
+  width: 350px;
+  height: 500px;
+}
+
+.format-4x6 {
+  width: 400px;
+  height: 600px;
+}
+
+.format-evite {
+  width: 360px;
+  height: 640px; /* Exact 9:16 mobile format ratio scaled down */
+}
+
+/* Decorative Card Borders */
+.card-border-outer {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  border: 1px solid var(--card-gold);
+}
+
+.card-border-inner {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid var(--card-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+/* SVG Crest Monogram styling */
+.crest-container {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  color: var(--card-gold);
+}
+
+.crest-svg {
+  width: 80px;
+  height: 80px;
+}
+
+/* Typography styles inside cards */
+.section-title {
+  font-size: 8px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  color: var(--card-secondary);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.couple-names {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.couple-names span {
+  display: block;
+}
+
+.and-symbol {
+  font-family: 'Great Vibes', cursive;
+  font-size: 34px;
+  color: var(--card-gold);
+  margin: 2px 0;
+}
+
+.request-text {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+  color: var(--card-secondary);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+/* Vintage Divider */
+.vintage-divider {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--card-gold), rgba(0, 0, 0, 0));
+  width: 60%;
+  margin-bottom: 24px;
+}
+
+.stationery-card[data-theme="emerald"] .vintage-divider {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--card-gold), rgba(0, 0, 0, 0));
+}
+
+.wedding-datetime {
+  margin-bottom: 24px;
+  font-family: 'EB Garamond', serif;
+  letter-spacing: 1.5px;
+}
+
+.wedding-datetime .date {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.wedding-datetime .year {
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--card-secondary);
+}
+
+.wedding-datetime .time {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.wedding-location {
+  margin-bottom: 24px;
+}
+
+.venue-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.venue-address {
+  font-family: 'EB Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--card-secondary);
+}
+
+.reception-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 22px;
+  color: var(--card-gold);
+}
+
+/* --------------------------------------------------------------------------
+   5. Card-Specific Layout Variations
+   -------------------------------------------------------------------------- */
+
+/* Save The Date Card */
+.save-the-date-card .couple-names-mini {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.photo-placeholder-frame {
+  width: 90%;
+  height: 250px;
+  border: 1px solid var(--card-gold);
+  padding: 6px;
+  margin-bottom: 25px;
+}
+
+.photo-inner {
+  width: 100%;
+  height: 100%;
+  background-color: var(--card-accent);
+  border: 1px dashed rgba(var(--card-primary), 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.photo-inner span {
+  font-family: 'EB Garamond', serif;
+  font-size: 13px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  color: var(--card-secondary);
+}
+
+.date-showcase {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.location-words {
+  font-family: 'EB Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.follow-text {
+  font-size: 8px;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: var(--card-secondary);
+}
+
+/* RSVP Card */
+.rsvp-card .card-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
+  color: var(--card-gold);
+  margin-bottom: 5px;
+}
+
+.deadline-text {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--card-secondary);
+  margin-bottom: 30px;
+}
+
+.deadline-text span {
+  font-weight: 600;
+  color: var(--card-primary);
+}
+
+.rsvp-form-lines {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.rsvp-line {
+  display: flex;
+  align-items: flex-end;
+  text-align: left;
+}
+
+.flex-line {
+  display: flex;
+}
+
+.rsvp-line .prefix {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-right: 8px;
+}
+
+.dotted-underline {
+  border-bottom: 1px dotted var(--card-primary);
+  flex-grow: 1;
+  height: 14px;
+}
+
+.rsvp-options {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px 0;
+}
+
+.rsvp-option {
+  font-family: 'EB Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-box {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--card-gold);
+  display: inline-block;
+}
+
+/* RSVP QR Code Frame */
+.rsvp-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+
+.qr-label {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--card-secondary);
+  margin-bottom: 6px;
+}
+
+.qr-frame {
+  width: 75px;
+  height: 75px;
+  border: 1px solid var(--card-gold);
+  padding: 4px;
+  background-color: #fff;
+}
+
+.qr-code-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.qr-url {
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  margin-top: 6px;
+  color: var(--card-secondary);
+}
+
+/* Details Card */
+.card-title-serif {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.thin-gold-line {
+  border: 0;
+  height: 1px;
+  background-color: var(--card-gold);
+  width: 40%;
+  margin-bottom: 25px;
+}
+
+.details-section {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.details-section h4 {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  color: var(--card-primary);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.details-section p {
+  font-family: 'EB Garamond', serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--card-secondary);
+  padding: 0 10px;
+}
+
+.dress-code-box {
+  background-color: var(--card-accent);
+  padding: 10px 15px;
+  border: 1px solid var(--card-gold);
+  display: inline-block;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.dress-code-box h4 {
+  margin-bottom: 4px;
+}
+
+.italic-serif {
+  font-style: italic;
+}
+
+.website-intro {
+  font-size: 9px !important;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.website-url {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 13px !important;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--card-primary);
+}
+
+/* Digital Mobile Evite */
+.couple-names-evite {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.evite-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 20px 0;
+}
+
+.detail-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-block .date {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.detail-block .time {
+  font-family: 'EB Garamond', serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--card-secondary);
+}
+
+.dress-block {
+  align-items: center;
+}
+
+.dress-label {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: var(--card-secondary);
+  margin-bottom: 2px;
+}
+
+.dress-val {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.evite-actions {
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+
+.rsvp-prompt {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--card-secondary);
+  margin-bottom: 4px;
+}
+
+/* Thank You Card */
+.thank-you-body {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.thank-you-body p {
+  font-family: 'EB Garamond', serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--card-secondary);
+  font-style: italic;
+  padding: 0 15px;
+}
+
+.monogram-initials-sig {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  letter-spacing: 4px;
+  color: var(--card-gold);
+  margin-top: auto;
+  margin-bottom: 15px;
+}
+
+/* Standalone Crest Display */
+.flex-center {
+  justify-content: center;
+}
+
+.crest-large-display {
+  color: var(--card-gold);
+  margin-bottom: 30px;
+}
+
+.crest-large-display .crest-svg {
+  width: 160px;
+  height: 160px;
+}
+
+.asset-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.asset-info p {
+  font-size: 10px;
+  color: var(--card-secondary);
+  max-width: 80%;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   6. Print Stylesheet Config (Exact Bleeds, 300 DPI, Crop Layouts)
+   -------------------------------------------------------------------------- */
+@media print {
+  /* Hide all UI dashboard elements */
+  body, .app-container {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  
+  .sidebar-panel,
+  .workspace-header,
+  .card-header-bar {
+    display: none !important;
+  }
+
+  .workspace-area {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .previews-grid {
+    display: block !important;
+  }
+
+  .card-preview-section {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    page-break-after: always;
+    display: none; /* Hide all by default, code will reveal active printing piece */
+  }
+
+  .stationery-card {
+    box-shadow: none !important;
+    margin: 0 auto !important;
+  }
+
+  /* Specific Card Layout Formats (Map to standard paper sizes for high-res PDF generation) */
+  body.print-only-invitation #print-invitation {
+    display: flex !important;
+  }
+  @page {
+    size: 5in 7in;
+    margin: 0;
+  }
+
+  body.print-only-save-the-date #print-save-the-date {
+    display: flex !important;
+  }
+
+  body.print-only-rsvp #print-rsvp {
+    display: flex !important;
+  }
+  body.print-only-rsvp @page {
+    size: 3.5in 5in;
+  }
+
+  body.print-only-details #print-details {
+    display: flex !important;
+  }
+  body.print-only-details @page {
+    size: 4in 6in;
+  }
+
+  body.print-only-evite #print-evite {
+    display: flex !important;
+  }
+  body.print-only-evite @page {
+    size: 1080px 1920px; /* Custom sizing for digital PDF */
+  }
+
+  body.print-only-thank-you #print-thank-you {
+    display: flex !important;
+  }
+  body.print-only-thank-you @page {
+    size: 4in 6in;
+  }
+
+  body.print-only-crest-standalone #print-crest-standalone {
+    display: flex !important;
+  }
+  body.print-only-crest-standalone @page {
+    size: 4in 6in;
+  }
+}
