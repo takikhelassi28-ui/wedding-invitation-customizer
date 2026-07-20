@@ -269,14 +269,14 @@ body {
   position: absolute;
   width: 30px;
   height: 30px;
-  background-color: var(--card-gold);
   pointer-events: none;
   z-index: 2;
+}
+
+.corner-ornament svg {
   display: none;
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-size: contain;
-  mask-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
 }
 
 .corner-top-left {
@@ -303,10 +303,8 @@ body {
 }
 
 /* 1. Flower Outline Border Style */
-body.border-style-flower .corner-ornament {
+body.border-style-flower .corner-ornament .svg-flower {
   display: block;
-  -webkit-mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIsMjggQzIsMTYgMTYsMiAyOCwyIE0yLDI4IEMyLDIyIDEwLDE0IDIwLDEwIE04LDIwIEMxNCwyMCAyMCwxNCAyMCw4IE0yLDIyIFE2LDIwIDgsMjQgTTIyLDIgUTIwLDYgMjQsOCIvPjwvc3ZnPg==');
-  mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIsMjggQzIsMTYgMTYsMiAyOCwyIE0yLDI4IEMyLDIyIDEwLDE0IDIwLDEwIE04LDIwIEMxNCwyMCAyMCwxNCAyMCw4IE0yLDIyIFE2LDIwIDgsMjQgTTIyLDIgUTIwLDYgMjQsOCIvPjwvc3ZnPg==');
 }
 
 body.border-style-flower .card-border-outer {
@@ -318,10 +316,8 @@ body.border-style-flower .card-border-inner {
 }
 
 /* 2. Vintage Outline Border Style */
-body.border-style-vintage .corner-ornament {
+body.border-style-vintage .corner-ornament .svg-vintage {
   display: block;
-  -webkit-mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIsMjggTDIsMiBMMjgsMiBNMiwxMCBDMTAsMTAgMTAsMiAxMCwyIE0yLDE4IEMxOCwxOCAxOCwyIDE4LDIiLz48L3N2Zz4=');
-  mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIsMjggTDIsMiBMMjgsMiBNMiwxMCBDMTAsMTAgMTAsMiAxMCwyIE0yLDE4IEMxOCwxOCAxOCwyIDE4LDIiLz48L3N2Zz4=');
 }
 
 body.border-style-vintage .card-border-outer {
@@ -335,10 +331,8 @@ body.border-style-vintage .card-border-inner {
 }
 
 /* 3. Luxury Outline Border Style */
-body.border-style-luxury .corner-ornament {
+body.border-style-luxury .corner-ornament .svg-luxury {
   display: block;
-  -webkit-mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIsMjggTDIsMiBMMjgsMiBNNiwyOCBMNiw2IEwyOCw2IE0xMCwyOCBMMTAsMTAgTDI4LDEwIi8+PC9zdmc+');
-  mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIsMjggTDIsMiBMMjgsMiBNNiwyOCBMNiw2IEwyOCw2IE0xMCwyOCBMMTAsMTAgTDI4LDEwIi8+PC9zdmc+');
 }
 
 body.border-style-luxury .card-border-outer {
