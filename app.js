@@ -50,6 +50,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // QR Code Image Element
   const rsvpQrCodeImg = document.getElementById('rsvp-qr-code');
 
+  // UI Theme Toggle (Light/Dark Mode for Editor Sidebar/Tools)
+  const uiThemeToggleBtn = document.getElementById('ui-theme-toggle');
+  
+  function applyUITheme(theme) {
+    if (theme === 'light') {
+      document.body.classList.add('ui-light-mode');
+    } else {
+      document.body.classList.remove('ui-light-mode');
+    }
+  }
+
+  // Load and apply initial UI theme state
+  const currentUITheme = localStorage.getItem('ui-theme') || 'dark';
+  applyUITheme(currentUITheme);
+
+  if (uiThemeToggleBtn) {
+    uiThemeToggleBtn.addEventListener('click', () => {
+      const isLight = document.body.classList.contains('ui-light-mode');
+      const newTheme = isLight ? 'dark' : 'light';
+      applyUITheme(newTheme);
+      localStorage.setItem('ui-theme', newTheme);
+    });
+  }
+
   /* --------------------------------------------------------------------------
      1. Monogram Crest Generator (Scalable Vectors)
      -------------------------------------------------------------------------- */

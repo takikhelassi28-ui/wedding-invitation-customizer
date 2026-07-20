@@ -19,6 +19,81 @@
   --ui-glass-border: rgba(255, 255, 255, 0.05);
 
   /* Theme 1: Old Money Cream (Default Variables for Cards) */
+}
+
+/* Light Mode Variables (Applied to body.ui-light-mode) */
+body.ui-light-mode {
+  --ui-bg: #F4F6F8;
+  --ui-sidebar-bg: rgba(255, 255, 255, 0.95);
+  --ui-border: rgba(0, 0, 0, 0.08);
+  --ui-text: #2D3748;
+  --ui-text-muted: #718096;
+  --ui-accent: #B2914F;
+  --ui-accent-hover: #9E7D3B;
+  --ui-glass-bg: rgba(0, 0, 0, 0.03);
+  --ui-glass-border: rgba(0, 0, 0, 0.06);
+}
+
+/* UI Theme Toggle Button styles */
+.ui-theme-toggle-btn {
+  background: var(--ui-glass-bg);
+  border: 1px solid var(--ui-glass-border);
+  color: var(--ui-text-muted);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.ui-theme-toggle-btn:hover {
+  border-color: var(--ui-accent);
+  color: var(--ui-text);
+  background: rgba(189, 162, 108, 0.1);
+}
+
+body.ui-light-mode .ui-theme-toggle-btn .sun-icon {
+  display: none;
+}
+
+body.ui-light-mode .ui-theme-toggle-btn .moon-icon {
+  display: block;
+}
+
+body.ui-light-mode .text-input,
+body.ui-light-mode .text-area-input {
+  background: #ffffff;
+}
+
+body.ui-light-mode .theme-btn {
+  background: #ffffff;
+}
+
+body.ui-light-mode .theme-btn:hover {
+  border-color: var(--ui-border);
+  color: var(--ui-text);
+}
+
+body.ui-light-mode .theme-btn.active {
+  background: rgba(178, 145, 79, 0.1);
+  color: var(--ui-accent);
+  border-color: var(--ui-accent);
+}
+
+body.ui-light-mode .color-picker-input {
+  background: #ffffff;
+}
+
+body.ui-light-mode .sidebar-panel::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+:root {
   --card-bg: #FDFBF7;
   --card-primary: #4A0E17;  /* Deep Burgundy */
   --card-secondary: #222222;/* Muted Charcoal */
@@ -102,7 +177,7 @@ body {
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 2px;
-  color: #fff;
+  color: var(--ui-text);
 }
 
 .sidebar-header .subtitle {
@@ -160,7 +235,7 @@ body {
   border: 1px solid var(--ui-border);
   border-radius: 4px;
   padding: 10px 12px;
-  color: #fff;
+  color: var(--ui-text);
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   transition: all 0.2s ease;
@@ -211,13 +286,13 @@ body {
 
 .theme-btn:hover {
   border-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  color: var(--ui-text);
 }
 
 .theme-btn.active {
   border-color: var(--ui-accent);
   background: rgba(189, 162, 108, 0.12);
-  color: #fff;
+  color: var(--ui-text);
 }
 
 .color-preview {
