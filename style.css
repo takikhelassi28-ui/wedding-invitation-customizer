@@ -176,30 +176,7 @@ body {
   resize: vertical;
 }
 
-.text-input[type="file"] {
-  padding: 7px 10px;
-  cursor: pointer;
-}
 
-.text-input[type="file"]::file-selector-button {
-  background: var(--ui-accent);
-  color: #121416;
-  border: none;
-  border-radius: 3px;
-  padding: 4px 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  margin-right: 10px;
-  transition: all 0.2s ease;
-}
-
-.text-input[type="file"]::file-selector-button:hover {
-  background: var(--ui-accent-hover);
-}
 
 .uppercase-input {
   text-transform: uppercase;
@@ -583,31 +560,9 @@ body {
   margin-bottom: 20px;
 }
 
-.photo-placeholder-frame {
-  width: 90%;
-  height: 250px;
-  border: 1px solid var(--card-gold);
-  padding: 6px;
-  margin-bottom: 25px;
-}
-
-.photo-inner {
-  width: 100%;
-  height: 100%;
-  background-color: var(--card-accent);
-  border: 1px dashed rgba(var(--card-primary), 0.2);
-  display: flex;
-  align-items: center;
+.save-the-date-card .card-border-inner {
   justify-content: center;
-  padding: 15px;
-}
-
-.photo-inner span {
-  font-family: 'EB Garamond', serif;
-  font-size: 13px;
-  font-style: italic;
-  letter-spacing: 0.5px;
-  color: var(--card-secondary);
+  gap: 20px;
 }
 
 .date-showcase {
