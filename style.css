@@ -264,60 +264,89 @@ body {
   border: 1px solid var(--ui-accent);
 }
 
-/* Dynamic Watercolor & Gold Foil Floral Borders */
-.floral-watercolor-border {
+/* Corner Ornaments for Border Styles */
+.corner-ornament {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 90px;
-  background-image: url('watercolor_wildflowers.jpg');
-  background-size: cover;
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  mix-blend-mode: multiply;
+  width: 30px;
+  height: 30px;
+  background-color: var(--card-gold);
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
   display: none;
-  opacity: 0.95;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-repeat: no-repeat;
 }
 
-.floral-gold-border {
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  right: 0;
-  height: 90px;
-  pointer-events: none;
-  z-index: 1;
-  display: none;
-  opacity: 0.85;
+.corner-top-left {
+  top: 8px;
+  left: 8px;
 }
 
-.gold-botanical-svg {
-  width: 100%;
-  height: 100%;
+.corner-top-right {
+  top: 8px;
+  right: 8px;
+  transform: scaleX(-1);
+}
+
+.corner-bottom-left {
+  bottom: 8px;
+  left: 8px;
+  transform: scaleY(-1);
+}
+
+.corner-bottom-right {
+  bottom: 8px;
+  right: 8px;
+  transform: scale(-1);
+}
+
+/* 1. Flower Outline Border Style */
+body.border-style-flower .corner-ornament {
   display: block;
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2,28 C2,16 16,2 28,2 M2,28 C2,22 10,14 20,10 M8,20 C14,20 20,14 20,8 M2,22 Q6,20 8,24 M22,2 Q20,6 24,8" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>');
+  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2,28 C2,16 16,2 28,2 M2,28 C2,22 10,14 20,10 M8,20 C14,20 20,14 20,8 M2,22 Q6,20 8,24 M22,2 Q20,6 24,8" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>');
 }
 
-/* Card-specific height adjustments for florals */
-.format-35x5 .floral-watercolor-border,
-.format-35x5 .floral-gold-border {
-  height: 60px;
+body.border-style-flower .card-border-outer {
+  border: 1px dashed var(--card-gold);
 }
 
-.format-evite .floral-watercolor-border,
-.format-evite .floral-gold-border {
-  height: 160px;
+body.border-style-flower .card-border-inner {
+  border: 1px solid var(--card-primary);
 }
 
-/* Body toggles */
-body.show-floral-watercolor .floral-watercolor-border {
+/* 2. Vintage Outline Border Style */
+body.border-style-vintage .corner-ornament {
   display: block;
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2,28 L2,2 L28,2 M2,10 C10,10 10,2 10,2 M2,18 C18,18 18,2 18,2" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>');
+  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2,28 L2,2 L28,2 M2,10 C10,10 10,2 10,2 M2,18 C18,18 18,2 18,2" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>');
 }
 
-body.show-floral-gold .floral-gold-border {
+body.border-style-vintage .card-border-outer {
+  border: 1px solid var(--card-gold);
+}
+
+body.border-style-vintage .card-border-inner {
+  border: 1px solid var(--card-primary);
+  outline: 1px solid var(--card-gold);
+  outline-offset: -4px;
+}
+
+/* 3. Luxury Outline Border Style */
+body.border-style-luxury .corner-ornament {
   display: block;
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2,28 L2,2 L28,2 M6,28 L6,6 L28,6 M10,28 L10,10 L28,10" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>');
+  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2,28 L2,2 L28,2 M6,28 L6,6 L28,6 M10,28 L10,10 L28,10" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>');
+}
+
+body.border-style-luxury .card-border-outer {
+  border: 1px solid var(--card-primary);
+}
+
+body.border-style-luxury .card-border-inner {
+  border: 2px double var(--card-gold);
 }
 
 .sidebar-footer {

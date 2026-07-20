@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body class="customizer-app">
 
@@ -54,11 +54,12 @@
             </button>
           </div>
           <div class="form-group margin-top-sm">
-            <label for="select-floral-style">Floral Decoration</label>
-            <select id="select-floral-style" class="text-input">
-              <option value="watercolor">Watercolor Wildflowers (Light Themes)</option>
-              <option value="gold">Gold Foil Outlines (Dark Themes)</option>
-              <option value="none">None (Minimalist)</option>
+            <label for="select-border-style">Card Border Outline</label>
+            <select id="select-border-style" class="text-input">
+              <option value="classic">Classic Editorial (Double Line)</option>
+              <option value="flower">Flower Outline (Floral Corners)</option>
+              <option value="vintage">Vintage Romance (Ornate Corners)</option>
+              <option value="luxury">Luxury Editorial (Art Deco Corners)</option>
             </select>
           </div>
         </div>
@@ -251,6 +252,11 @@
           <div class="stationery-card invitation-card format-5x7" data-theme="cream">
             <div class="card-border-outer">
               <div class="card-border-inner">
+                <!-- Corner Ornaments for Border Styles -->
+                <div class="corner-ornament corner-top-left"></div>
+                <div class="corner-ornament corner-top-right"></div>
+                <div class="corner-ornament corner-bottom-left"></div>
+                <div class="corner-ornament corner-bottom-right"></div>
                 <!-- Crest Monogram -->
                 <div class="crest-container">
                   <!-- Custom Monogram SVG inserted dynamically -->
@@ -306,20 +312,6 @@
                 <p class="reception-text bind-reception-text">Reception to follow immediately</p>
               </div>
             </div>
-            <div class="floral-watercolor-border"></div>
-            <div class="floral-gold-border">
-              <svg viewBox="0 0 200 40" class="gold-botanical-svg">
-                <path d="M 5,35 Q 20,20 40,32 T 80,25 T 120,30 T 160,20 T 195,35" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <path d="M 20,27 Q 15,22 17,18 Q 22,22 20,27" fill="var(--card-gold)" />
-                <path d="M 45,29 Q 48,22 52,24 Q 49,31 45,29" fill="var(--card-gold)" />
-                <circle cx="70" cy="22" r="1.5" fill="var(--card-gold)" />
-                <path d="M 70,22 C 68,19 72,19 70,22 C 73,20 73,24 70,22 C 72,25 68,25 70,22 C 67,24 67,20 70,22" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <circle cx="140" cy="18" r="1.5" fill="var(--card-gold)" />
-                <path d="M 140,18 C 138,15 142,15 140,18 C 143,16 143,20 140,18 C 142,21 138,21 140,18 C 137,20 137,16 140,18" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <path d="M 95,26 Q 98,18 102,21 Q 99,28 95,26" fill="var(--card-gold)" />
-                <path d="M 170,22 Q 165,16 168,12 Q 172,16 170,22" fill="var(--card-gold)" />
-              </svg>
-            </div>
           </div>
         </section>
 
@@ -332,6 +324,11 @@
           <div class="stationery-card save-the-date-card format-5x7" data-theme="cream">
             <div class="card-border-outer">
               <div class="card-border-inner">
+                <!-- Corner Ornaments for Border Styles -->
+                <div class="corner-ornament corner-top-left"></div>
+                <div class="corner-ornament corner-top-right"></div>
+                <div class="corner-ornament corner-bottom-left"></div>
+                <div class="corner-ornament corner-bottom-right"></div>
                 <div class="crest-container"></div>
                 
                 <p class="section-title tracking-wide">SAVE THE DATE</p>
@@ -360,20 +357,6 @@
                 <p class="follow-text">FORMAL INVITATION TO FOLLOW</p>
               </div>
             </div>
-            <div class="floral-watercolor-border"></div>
-            <div class="floral-gold-border">
-              <svg viewBox="0 0 200 40" class="gold-botanical-svg">
-                <path d="M 5,35 Q 20,20 40,32 T 80,25 T 120,30 T 160,20 T 195,35" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <path d="M 20,27 Q 15,22 17,18 Q 22,22 20,27" fill="var(--card-gold)" />
-                <path d="M 45,29 Q 48,22 52,24 Q 49,31 45,29" fill="var(--card-gold)" />
-                <circle cx="70" cy="22" r="1.5" fill="var(--card-gold)" />
-                <path d="M 70,22 C 68,19 72,19 70,22 C 73,20 73,24 70,22 C 72,25 68,25 70,22 C 67,24 67,20 70,22" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <circle cx="140" cy="18" r="1.5" fill="var(--card-gold)" />
-                <path d="M 140,18 C 138,15 142,15 140,18 C 143,16 143,20 140,18 C 142,21 138,21 140,18 C 137,20 137,16 140,18" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <path d="M 95,26 Q 98,18 102,21 Q 99,28 95,26" fill="var(--card-gold)" />
-                <path d="M 170,22 Q 165,16 168,12 Q 172,16 170,22" fill="var(--card-gold)" />
-              </svg>
-            </div>
           </div>
         </section>
 
@@ -386,6 +369,11 @@
           <div class="stationery-card rsvp-card format-35x5" data-theme="cream">
             <div class="card-border-outer">
               <div class="card-border-inner">
+                <!-- Corner Ornaments for Border Styles -->
+                <div class="corner-ornament corner-top-left"></div>
+                <div class="corner-ornament corner-top-right"></div>
+                <div class="corner-ornament corner-bottom-left"></div>
+                <div class="corner-ornament corner-bottom-right"></div>
                 <div class="crest-container"></div>
                 
                 <h2 class="card-title bind-rsvp-title">Kindly Respond</h2>
@@ -418,20 +406,6 @@
                 </div>
               </div>
             </div>
-            <div class="floral-watercolor-border"></div>
-            <div class="floral-gold-border">
-              <svg viewBox="0 0 200 40" class="gold-botanical-svg">
-                <path d="M 5,35 Q 20,20 40,32 T 80,25 T 120,30 T 160,20 T 195,35" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <path d="M 20,27 Q 15,22 17,18 Q 22,22 20,27" fill="var(--card-gold)" />
-                <path d="M 45,29 Q 48,22 52,24 Q 49,31 45,29" fill="var(--card-gold)" />
-                <circle cx="70" cy="22" r="1.5" fill="var(--card-gold)" />
-                <path d="M 70,22 C 68,19 72,19 70,22 C 73,20 73,24 70,22 C 72,25 68,25 70,22 C 67,24 67,20 70,22" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <circle cx="140" cy="18" r="1.5" fill="var(--card-gold)" />
-                <path d="M 140,18 C 138,15 142,15 140,18 C 143,16 143,20 140,18 C 142,21 138,21 140,18 C 137,20 137,16 140,18" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <path d="M 95,26 Q 98,18 102,21 Q 99,28 95,26" fill="var(--card-gold)" />
-                <path d="M 170,22 Q 165,16 168,12 Q 172,16 170,22" fill="var(--card-gold)" />
-              </svg>
-            </div>
           </div>
         </section>
 
@@ -444,6 +418,11 @@
           <div class="stationery-card details-card format-4x6" data-theme="cream">
             <div class="card-border-outer">
               <div class="card-border-inner">
+                <!-- Corner Ornaments for Border Styles -->
+                <div class="corner-ornament corner-top-left"></div>
+                <div class="corner-ornament corner-top-right"></div>
+                <div class="corner-ornament corner-bottom-left"></div>
+                <div class="corner-ornament corner-bottom-right"></div>
                 <h2 class="card-title-serif">Details</h2>
                 <hr class="thin-gold-line">
                 
@@ -470,20 +449,6 @@
                 </div>
               </div>
             </div>
-            <div class="floral-watercolor-border"></div>
-            <div class="floral-gold-border">
-              <svg viewBox="0 0 200 40" class="gold-botanical-svg">
-                <path d="M 5,35 Q 20,20 40,32 T 80,25 T 120,30 T 160,20 T 195,35" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <path d="M 20,27 Q 15,22 17,18 Q 22,22 20,27" fill="var(--card-gold)" />
-                <path d="M 45,29 Q 48,22 52,24 Q 49,31 45,29" fill="var(--card-gold)" />
-                <circle cx="70" cy="22" r="1.5" fill="var(--card-gold)" />
-                <path d="M 70,22 C 68,19 72,19 70,22 C 73,20 73,24 70,22 C 72,25 68,25 70,22 C 67,24 67,20 70,22" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <circle cx="140" cy="18" r="1.5" fill="var(--card-gold)" />
-                <path d="M 140,18 C 138,15 142,15 140,18 C 143,16 143,20 140,18 C 142,21 138,21 140,18 C 137,20 137,16 140,18" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <path d="M 95,26 Q 98,18 102,21 Q 99,28 95,26" fill="var(--card-gold)" />
-                <path d="M 170,22 Q 165,16 168,12 Q 172,16 170,22" fill="var(--card-gold)" />
-              </svg>
-            </div>
           </div>
         </section>
 
@@ -496,6 +461,11 @@
           <div class="stationery-card evite-card format-evite" data-theme="cream">
             <div class="card-border-outer">
               <div class="card-border-inner">
+                <!-- Corner Ornaments for Border Styles -->
+                <div class="corner-ornament corner-top-left"></div>
+                <div class="corner-ornament corner-top-right"></div>
+                <div class="corner-ornament corner-bottom-left"></div>
+                <div class="corner-ornament corner-bottom-right"></div>
                 <div class="crest-container"></div>
                 
                 <p class="section-title">YOU ARE INVITED TO THE WEDDING OF</p>
@@ -555,20 +525,6 @@
                 </div>
               </div>
             </div>
-            <div class="floral-watercolor-border"></div>
-            <div class="floral-gold-border">
-              <svg viewBox="0 0 200 40" class="gold-botanical-svg">
-                <path d="M 5,35 Q 20,20 40,32 T 80,25 T 120,30 T 160,20 T 195,35" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <path d="M 20,27 Q 15,22 17,18 Q 22,22 20,27" fill="var(--card-gold)" />
-                <path d="M 45,29 Q 48,22 52,24 Q 49,31 45,29" fill="var(--card-gold)" />
-                <circle cx="70" cy="22" r="1.5" fill="var(--card-gold)" />
-                <path d="M 70,22 C 68,19 72,19 70,22 C 73,20 73,24 70,22 C 72,25 68,25 70,22 C 67,24 67,20 70,22" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <circle cx="140" cy="18" r="1.5" fill="var(--card-gold)" />
-                <path d="M 140,18 C 138,15 142,15 140,18 C 143,16 143,20 140,18 C 142,21 138,21 140,18 C 137,20 137,16 140,18" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <path d="M 95,26 Q 98,18 102,21 Q 99,28 95,26" fill="var(--card-gold)" />
-                <path d="M 170,22 Q 165,16 168,12 Q 172,16 170,22" fill="var(--card-gold)" />
-              </svg>
-            </div>
           </div>
         </section>
 
@@ -581,6 +537,11 @@
           <div class="stationery-card thank-you-card format-4x6" data-theme="cream">
             <div class="card-border-outer">
               <div class="card-border-inner">
+                <!-- Corner Ornaments for Border Styles -->
+                <div class="corner-ornament corner-top-left"></div>
+                <div class="corner-ornament corner-top-right"></div>
+                <div class="corner-ornament corner-bottom-left"></div>
+                <div class="corner-ornament corner-bottom-right"></div>
                 <div class="crest-container"></div>
                 
                 <h2 class="card-title-serif">Thank You</h2>
@@ -594,20 +555,6 @@
                   MMXXVI
                 </div>
               </div>
-            </div>
-            <div class="floral-watercolor-border"></div>
-            <div class="floral-gold-border">
-              <svg viewBox="0 0 200 40" class="gold-botanical-svg">
-                <path d="M 5,35 Q 20,20 40,32 T 80,25 T 120,30 T 160,20 T 195,35" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <path d="M 20,27 Q 15,22 17,18 Q 22,22 20,27" fill="var(--card-gold)" />
-                <path d="M 45,29 Q 48,22 52,24 Q 49,31 45,29" fill="var(--card-gold)" />
-                <circle cx="70" cy="22" r="1.5" fill="var(--card-gold)" />
-                <path d="M 70,22 C 68,19 72,19 70,22 C 73,20 73,24 70,22 C 72,25 68,25 70,22 C 67,24 67,20 70,22" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <circle cx="140" cy="18" r="1.5" fill="var(--card-gold)" />
-                <path d="M 140,18 C 138,15 142,15 140,18 C 143,16 143,20 140,18 C 142,21 138,21 140,18 C 137,20 137,16 140,18" stroke="var(--card-gold)" stroke-width="0.5" fill="none" />
-                <path d="M 95,26 Q 98,18 102,21 Q 99,28 95,26" fill="var(--card-gold)" />
-                <path d="M 170,22 Q 165,16 168,12 Q 172,16 170,22" fill="var(--card-gold)" />
-              </svg>
             </div>
           </div>
         </section>

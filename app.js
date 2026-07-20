@@ -271,23 +271,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-     5. Theme Selection & Floral Logic
+     5. Theme Selection & Border Style Logic
      -------------------------------------------------------------------------- */
-  const selectFloralStyle = document.getElementById('select-floral-style');
+  const selectBorderStyle = document.getElementById('select-border-style');
 
-  function updateFloralStyle() {
-    if (!selectFloralStyle) return;
-    const style = selectFloralStyle.value;
-    document.body.classList.remove('show-floral-watercolor', 'show-floral-gold');
-    if (style === 'watercolor') {
-      document.body.classList.add('show-floral-watercolor');
-    } else if (style === 'gold') {
-      document.body.classList.add('show-floral-gold');
-    }
+  function updateBorderStyle() {
+    if (!selectBorderStyle) return;
+    const style = selectBorderStyle.value;
+    document.body.classList.remove('border-style-classic', 'border-style-flower', 'border-style-vintage', 'border-style-luxury');
+    document.body.classList.add(`border-style-${style}`);
   }
 
-  if (selectFloralStyle) {
-    selectFloralStyle.addEventListener('change', updateFloralStyle);
+  if (selectBorderStyle) {
+    selectBorderStyle.addEventListener('change', updateBorderStyle);
   }
 
   themeBtns.forEach(btn => {
@@ -306,14 +302,18 @@ document.addEventListener('DOMContentLoaded', () => {
         clearCustomColors();
       }
 
-      // Auto-switch floral style preset based on chosen theme
-      if (selectFloralStyle) {
+      // Auto-switch border outline preset based on chosen theme for premium defaults
+      if (selectBorderStyle) {
         if (theme === 'cream') {
-          selectFloralStyle.value = 'watercolor';
-        } else if (theme === 'emerald' || theme === 'sage' || theme === 'plum') {
-          selectFloralStyle.value = 'gold';
+          selectBorderStyle.value = 'classic';
+        } else if (theme === 'emerald') {
+          selectBorderStyle.value = 'luxury';
+        } else if (theme === 'sage') {
+          selectBorderStyle.value = 'flower';
+        } else if (theme === 'plum') {
+          selectBorderStyle.value = 'vintage';
         }
-        updateFloralStyle();
+        updateBorderStyle();
       }
 
       cards.forEach(card => {
@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCrests();
   syncTextBindings();
   updateQRCode();
-  updateFloralStyle();
+  updateBorderStyle();
 });
 
 /* --------------------------------------------------------------------------
