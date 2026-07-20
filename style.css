@@ -339,83 +339,125 @@ body {
   border: 1px solid var(--ui-accent);
 }
 
-/* Corner Ornaments for Border Styles */
-.corner-ornament {
+/* Card Outline SVG Overlays */
+.card-outline-overlay {
   position: absolute;
-  width: 30px;
-  height: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 5;
 }
 
-.corner-ornament svg {
-  display: none;
+.card-outline-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  display: none;
 }
 
-.corner-top-left {
-  top: 8px;
-  left: 8px;
-}
-
-.corner-top-right {
-  top: 8px;
-  right: 8px;
-  transform: scaleX(-1);
-}
-
-.corner-bottom-left {
-  bottom: 8px;
-  left: 8px;
-  transform: scaleY(-1);
-}
-
-.corner-bottom-right {
-  bottom: 8px;
-  right: 8px;
-  transform: scale(-1);
+/* Classic Editorial Border */
+body.border-style-classic .svg-classic {
+  display: block;
 }
 
 /* 1. Flower Outline Border Style */
-body.border-style-flower .corner-ornament .svg-flower {
+.card-outline-flowers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+body.border-style-flower .card-outline-flowers {
   display: block;
 }
 
-body.border-style-flower .card-border-outer {
-  border: 1px dashed var(--card-gold);
+.flower-corner {
+  position: absolute;
+  width: 45px;
+  height: 45px;
 }
+.flower-corner.tl { top: 4px; left: 4px; }
+.flower-corner.tr { top: 4px; right: 4px; }
+.flower-corner.bl { bottom: 4px; left: 4px; }
+.flower-corner.br { bottom: 4px; right: 4px; }
 
-body.border-style-flower .card-border-inner {
-  border: 1px solid var(--card-primary);
+.flower-edge {
+  position: absolute;
+  width: 60px;
+  height: 20px;
 }
+.flower-edge.top-edge { top: 0px; left: calc(50% - 30px); }
+.flower-edge.bottom-edge { bottom: 0px; left: calc(50% - 30px); }
 
 /* 2. Vintage Outline Border Style */
-body.border-style-vintage .corner-ornament .svg-vintage {
+.card-outline-vintage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+body.border-style-vintage .card-outline-vintage {
   display: block;
 }
 
-body.border-style-vintage .card-border-outer {
-  border: 1px solid var(--card-gold);
+.vintage-corner {
+  position: absolute;
+  width: 35px;
+  height: 35px;
 }
-
-body.border-style-vintage .card-border-inner {
-  border: 1px solid var(--card-primary);
-  outline: 1px solid var(--card-gold);
-  outline-offset: -4px;
-}
+.vintage-corner.tl { top: 4px; left: 4px; }
+.vintage-corner.tr { top: 4px; right: 4px; }
+.vintage-corner.bl { bottom: 4px; left: 4px; }
+.vintage-corner.br { bottom: 4px; right: 4px; }
 
 /* 3. Luxury Outline Border Style */
-body.border-style-luxury .corner-ornament .svg-luxury {
+.card-outline-luxury {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+body.border-style-luxury .card-outline-luxury {
   display: block;
 }
 
+.luxury-corner {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+}
+.luxury-corner.tl { top: 4px; left: 4px; }
+.luxury-corner.tr { top: 4px; right: 4px; }
+.luxury-corner.bl { bottom: 4px; left: 4px; }
+.luxury-corner.br { bottom: 4px; right: 4px; }
+
+/* Remove default CSS borders from outer/inner card wrappers when outline styles are active */
+body.border-style-classic .card-border-outer,
+body.border-style-flower .card-border-outer,
+body.border-style-vintage .card-border-outer,
 body.border-style-luxury .card-border-outer {
-  border: 1px solid var(--card-primary);
+  border: none !important;
 }
 
+body.border-style-classic .card-border-inner,
+body.border-style-flower .card-border-inner,
+body.border-style-vintage .card-border-inner,
 body.border-style-luxury .card-border-inner {
-  border: 2px double var(--card-gold);
+  border: none !important;
+  outline: none !important;
 }
 
 .sidebar-footer {
