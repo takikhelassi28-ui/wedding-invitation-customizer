@@ -16,8 +16,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputStdDate = document.getElementById('input-std-date');
 
   
+  const inputRsvpTitle = document.getElementById('input-rsvp-title');
   const inputRsvpDeadline = document.getElementById('input-rsvp-deadline');
+  const inputRsvpMPrefix = document.getElementById('input-rsvp-m-prefix');
+  const inputRsvpOption1 = document.getElementById('input-rsvp-option-1');
+  const inputRsvpOption2 = document.getElementById('input-rsvp-option-2');
+  const inputRsvpDietary = document.getElementById('input-rsvp-dietary');
+  const inputRsvpScanPrompt = document.getElementById('input-rsvp-scan-prompt');
   const inputRsvpQrUrl = document.getElementById('input-rsvp-qr-url');
+  
+  // Custom Color Picker inputs
+  const customColorsSection = document.getElementById('custom-colors-section');
+  const inputColorBg = document.getElementById('input-color-bg');
+  const inputColorPrimary = document.getElementById('input-color-primary');
+  const inputColorSecondary = document.getElementById('input-color-secondary');
+  const inputColorGold = document.getElementById('input-color-gold');
+  const inputColorAccent = document.getElementById('input-color-accent');
   
   const inputDetailsHotel = document.getElementById('input-details-hotel');
   const inputDetailsTravel = document.getElementById('input-details-travel');
@@ -125,6 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (activeTheme === 'plum') {
       color = 'e6c594';
       bgcolor = '2d1225';
+    } else if (activeTheme === 'custom') {
+      color = inputColorPrimary.value.replace('#', '');
+      bgcolor = inputColorBg.value.replace('#', '');
     }
     
     rsvpQrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${url}&color=${color}&bgcolor=${bgcolor}`;
@@ -154,7 +171,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.bind-std-date').forEach(el => el.innerText = inputStdDate.value);
 
     // RSVP specific
+    document.querySelectorAll('.bind-rsvp-title').forEach(el => el.innerText = inputRsvpTitle.value);
     document.querySelectorAll('.bind-rsvp-deadline').forEach(el => el.innerText = inputRsvpDeadline.value);
+    document.querySelectorAll('.bind-rsvp-m-prefix').forEach(el => el.innerText = inputRsvpMPrefix.value);
+    document.querySelectorAll('.bind-rsvp-option-1').forEach(el => el.innerText = inputRsvpOption1.value);
+    document.querySelectorAll('.bind-rsvp-option-2').forEach(el => el.innerText = inputRsvpOption2.value);
+    document.querySelectorAll('.bind-rsvp-dietary').forEach(el => el.innerText = inputRsvpDietary.value);
+    document.querySelectorAll('.bind-rsvp-scan-prompt').forEach(el => el.innerText = inputRsvpScanPrompt.value);
     document.querySelectorAll('.bind-rsvp-qr-url').forEach(el => el.innerText = inputRsvpQrUrl.value);
 
     // Details specific
@@ -193,7 +216,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* --------------------------------------------------------------------------
-     4. Theme Selection Logic
+     4. Custom Color Palette Application
+     -------------------------------------------------------------------------- */
+  function applyCustomColors() {
+    const cards = document.querySelectorAll('.stationery-card');
+    cards.forEach(card => {
+      card.style.setProperty('--card-bg', inputColorBg.value);
+      card.style.setProperty('--card-primary', inputColorPrimary.value);
+      card.style.setProperty('--card-secondary', inputColorSecondary.value);
+      card.style.setProperty('--card-gold', inputColorGold.value);
+      card.style.setProperty('--card-accent', inputColorAccent.value);
+    });
+  }
+
+  function clearCustomColors() {
+    const cards = document.querySelectorAll('.stationery-card');
+    cards.forEach(card => {
+      card.style.removeProperty('--card-bg');
+      card.style.removeProperty('--card-primary');
+      card.style.removeProperty('--card-secondary');
+      card.style.removeProperty('--card-gold');
+      card.style.removeProperty('--card-accent');
+    });
+  }
+
+  // Add listeners to color pickers
+  const colorPickers = [inputColorBg, inputColorPrimary, inputColorSecondary, inputColorGold, inputColorAccent];
+  colorPickers.forEach(picker => {
+    picker.addEventListener('input', () => {
+      const activeBtn = document.querySelector('.theme-btn.active');
+      if (activeBtn && activeBtn.dataset.theme === 'custom') {
+        applyCustomColors();
+        updateQRCode();
+      }
+    });
+  });
+
+  /* --------------------------------------------------------------------------
+     5. Theme Selection Logic
      -------------------------------------------------------------------------- */
   themeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -202,6 +262,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const theme = btn.dataset.theme;
       const cards = document.querySelectorAll('.stationery-card');
+
+      if (theme === 'custom') {
+        customColorsSection.style.display = 'block';
+        applyCustomColors();
+      } else {
+        customColorsSection.style.display = 'none';
+        clearCustomColors();
+      }
+
       cards.forEach(card => {
         card.setAttribute('data-theme', theme);
       });

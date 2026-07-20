@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body class="customizer-app">
 
@@ -49,7 +49,38 @@
             <button type="button" class="theme-btn" data-theme="plum">
               <span class="color-preview plum-bg"></span> Royal Plum
             </button>
+            <button type="button" class="theme-btn" data-theme="custom" id="theme-btn-custom">
+              <span class="color-preview custom-bg"></span> Custom Theme
+            </button>
           </div>
+        </div>
+
+        <!-- Section: Custom Color Palette -->
+        <div class="form-section" id="custom-colors-section" style="display: none;">
+          <h3>Custom Color Palette</h3>
+          <div class="color-pickers-grid">
+            <div class="color-picker-group">
+              <label for="input-color-bg">Background</label>
+              <input type="color" id="input-color-bg" value="#FDFBF7" class="color-picker-input">
+            </div>
+            <div class="color-picker-group">
+              <label for="input-color-primary">Primary Text/Border</label>
+              <input type="color" id="input-color-primary" value="#4A0E17" class="color-picker-input">
+            </div>
+            <div class="color-picker-group">
+              <label for="input-color-secondary">Secondary Text</label>
+              <input type="color" id="input-color-secondary" value="#222222" class="color-picker-input">
+            </div>
+            <div class="color-picker-group">
+              <label for="input-color-gold">Gold Accent</label>
+              <input type="color" id="input-color-gold" value="#D4AF37" class="color-picker-input">
+            </div>
+            <div class="color-picker-group">
+              <label for="input-color-accent">Inner Accent</label>
+              <input type="color" id="input-color-accent" value="#F4EFEA" class="color-picker-input">
+            </div>
+          </div>
+        </div>
           <div class="form-group margin-top-sm">
             <label for="input-monogram-first">Monogram Initial 1</label>
             <input type="text" id="input-monogram-first" value="H" maxlength="1" class="text-input uppercase-input">
@@ -118,10 +149,34 @@
 
         <!-- Section: RSVP Details -->
         <div class="form-section">
-          <h3>RSVP Details</h3>
+          <h3>RSVP Wording & Settings</h3>
+          <div class="form-group">
+            <label for="input-rsvp-title">RSVP Card Heading</label>
+            <input type="text" id="input-rsvp-title" value="Kindly Respond" class="text-input">
+          </div>
           <div class="form-group">
             <label for="input-rsvp-deadline">Respond By Date</label>
             <input type="text" id="input-rsvp-deadline" value="August first, two thousand twenty-six" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-rsvp-m-prefix">Name Line Prefix</label>
+            <input type="text" id="input-rsvp-m-prefix" value="M" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-rsvp-option-1">Option 1 Text</label>
+            <input type="text" id="input-rsvp-option-1" value="Accepts with pleasure" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-rsvp-option-2">Option 2 Text</label>
+            <input type="text" id="input-rsvp-option-2" value="Declines with regret" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-rsvp-dietary">Dietary Label</label>
+            <input type="text" id="input-rsvp-dietary" value="DIETARY RESTRICTIONS" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-rsvp-scan-prompt">Scan Prompt</label>
+            <input type="text" id="input-rsvp-scan-prompt" value="OR RSVP DIGITALLY" class="text-input">
           </div>
           <div class="form-group">
             <label for="input-rsvp-qr-url">Digital RSVP URL (QR Code)</label>
@@ -261,29 +316,29 @@
               <div class="card-border-inner">
                 <div class="crest-container"></div>
                 
-                <h2 class="card-title">Kindly Respond</h2>
+                <h2 class="card-title bind-rsvp-title">Kindly Respond</h2>
                 <p class="deadline-text">BY <span class="bind-rsvp-deadline uppercase">August first, two thousand twenty-six</span></p>
                 
                 <div class="rsvp-form-lines">
                   <div class="rsvp-line flex-line">
-                    <span class="prefix">M</span>
+                    <span class="prefix bind-rsvp-m-prefix">M</span>
                     <span class="dotted-underline flex-grow"></span>
                   </div>
                   
                   <div class="rsvp-options">
-                    <div class="rsvp-option"><span class="checkbox-box"></span> Accepts with pleasure</div>
-                    <div class="rsvp-option"><span class="checkbox-box"></span> Declines with regret</div>
+                    <div class="rsvp-option"><span class="checkbox-box"></span> <span class="bind-rsvp-option-1">Accepts with pleasure</span></div>
+                    <div class="rsvp-option"><span class="checkbox-box"></span> <span class="bind-rsvp-option-2">Declines with regret</span></div>
                   </div>
                   
                   <div class="rsvp-line">
-                    <span class="prefix">DIETARY RESTRICTIONS</span>
+                    <span class="prefix bind-rsvp-dietary">DIETARY RESTRICTIONS</span>
                     <span class="dotted-underline"></span>
                   </div>
                 </div>
 
                 <!-- QR Code Frame for digital RSVP -->
                 <div class="rsvp-qr-container">
-                  <div class="qr-label">Or RSVP Digitally</div>
+                  <div class="qr-label bind-rsvp-scan-prompt">Or RSVP Digitally</div>
                   <div class="qr-frame">
                     <img id="rsvp-qr-code" class="qr-code-img" src="" alt="Digital RSVP QR Code">
                   </div>
@@ -434,6 +489,6 @@
   </div>
 
   <!-- JavaScript logic -->
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
