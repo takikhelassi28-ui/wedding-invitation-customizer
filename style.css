@@ -30,6 +30,8 @@
 /* Color Tokens for Toggles */
 .cream-bg { background-color: #FDFBF7; border: 1px solid #4A0E17; }
 .emerald-bg { background-color: #0F2A1D; border: 1px solid #D4AF37; }
+.sage-bg { background-color: #2A3A2C; border: 1px solid #E5C483; }
+.plum-bg { background-color: #2D1225; border: 1px solid #E6C594; }
 
 * {
   box-sizing: border-box;
@@ -362,6 +364,22 @@ body {
   --card-secondary: #FDFBF7;
   --card-gold: #D4AF37;
   --card-accent: #173b2a;
+}
+
+.stationery-card[data-theme="sage"] {
+  --card-bg: #2A3A2C;
+  --card-primary: #E5C483;
+  --card-secondary: #F8F5F0;
+  --card-gold: #E5C483;
+  --card-accent: #3D543F;
+}
+
+.stationery-card[data-theme="plum"] {
+  --card-bg: #2D1225;
+  --card-primary: #E6C594;
+  --card-secondary: #FAF8F5;
+  --card-gold: #E6C594;
+  --card-accent: #4A1535;
 }
 
 /* Aspect Ratio Sizes (Base dimensions mapped via scale properties) */
