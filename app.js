@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputReceptionText = document.getElementById('input-reception-text');
   
   const inputStdDate = document.getElementById('input-std-date');
-  const inputStdPhoto = document.getElementById('input-std-photo');
+  const inputStdPhotoFile = document.getElementById('input-std-photo-file');
+  const stdPhotoPreview = document.getElementById('std-photo-preview');
   
   const inputRsvpDeadline = document.getElementById('input-rsvp-deadline');
   const inputRsvpQrUrl = document.getElementById('input-rsvp-qr-url');
@@ -143,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Save the Date specific
     document.querySelectorAll('.bind-std-date').forEach(el => el.innerText = inputStdDate.value);
-    document.querySelectorAll('.bind-std-photo').forEach(el => el.innerText = inputStdPhoto.value);
 
     // RSVP specific
     document.querySelectorAll('.bind-rsvp-deadline').forEach(el => el.innerText = inputRsvpDeadline.value);
@@ -181,6 +181,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Handle image upload for Save The Date photo
+  if (inputStdPhotoFile) {
+    inputStdPhotoFile.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          stdPhotoPreview.src = event.target.result;
+          stdPhotoPreview.style.display = 'block';
+          document.querySelectorAll('.bind-std-photo').forEach(el => el.style.display = 'none');
+        };
+        reader.readAsDataURL(file);
+      } else {
+        stdPhotoPreview.src = '';
+        stdPhotoPreview.style.display = 'none';
+        document.querySelectorAll('.bind-std-photo').forEach(el => el.style.display = 'block');
+      }
+    });
+  }
 
   /* --------------------------------------------------------------------------
      4. Theme Selection Logic

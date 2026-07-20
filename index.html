@@ -108,8 +108,8 @@
             <input type="text" id="input-std-date" value="09.12.2026" class="text-input">
           </div>
           <div class="form-group">
-            <label for="input-std-photo">Photo Placeholder Text</label>
-            <input type="text" id="input-std-photo" value="[ Insert Couple's Portrait Here ]" class="text-input">
+            <label for="input-std-photo-file">Upload Couple's Portrait</label>
+            <input type="file" id="input-std-photo-file" accept="image/*" class="text-input">
           </div>
         </div>
 
@@ -239,6 +239,7 @@
                 <div class="photo-placeholder-frame">
                   <div class="photo-inner">
                     <span class="bind-std-photo">[ Insert Couple's Portrait Here ]</span>
+                    <img id="std-photo-preview" src="" alt="Couple's Portrait" style="display: none; width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                   </div>
                 </div>
 

@@ -174,6 +174,31 @@ body {
   resize: vertical;
 }
 
+.text-input[type="file"] {
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.text-input[type="file"]::file-selector-button {
+  background: var(--ui-accent);
+  color: #121416;
+  border: none;
+  border-radius: 3px;
+  padding: 4px 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: all 0.2s ease;
+}
+
+.text-input[type="file"]::file-selector-button:hover {
+  background: var(--ui-accent-hover);
+}
+
 .uppercase-input {
   text-transform: uppercase;
 }
