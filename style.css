@@ -305,8 +305,8 @@ body {
 /* 1. Flower Outline Border Style */
 body.border-style-flower .corner-ornament {
   display: block;
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2,28 C2,16 16,2 28,2 M2,28 C2,22 10,14 20,10 M8,20 C14,20 20,14 20,8 M2,22 Q6,20 8,24 M22,2 Q20,6 24,8" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>');
-  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2,28 C2,16 16,2 28,2 M2,28 C2,22 10,14 20,10 M8,20 C14,20 20,14 20,8 M2,22 Q6,20 8,24 M22,2 Q20,6 24,8" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>');
+  -webkit-mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIsMjggQzIsMTYgMTYsMiAyOCwyIE0yLDI4IEMyLDIyIDEwLDE0IDIwLDEwIE04LDIwIEMxNCwyMCAyMCwxNCAyMCw4IE0yLDIyIFE2LDIwIDgsMjQgTTIyLDIgUTIwLDYgMjQsOCIvPjwvc3ZnPg==');
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIsMjggQzIsMTYgMTYsMiAyOCwyIE0yLDI4IEMyLDIyIDEwLDE0IDIwLDEwIE04LDIwIEMxNCwyMCAyMCwxNCAyMCw4IE0yLDIyIFE2LDIwIDgsMjQgTTIyLDIgUTIwLDYgMjQsOCIvPjwvc3ZnPg==');
 }
 
 body.border-style-flower .card-border-outer {
@@ -320,8 +320,8 @@ body.border-style-flower .card-border-inner {
 /* 2. Vintage Outline Border Style */
 body.border-style-vintage .corner-ornament {
   display: block;
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2,28 L2,2 L28,2 M2,10 C10,10 10,2 10,2 M2,18 C18,18 18,2 18,2" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>');
-  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2,28 L2,2 L28,2 M2,10 C10,10 10,2 10,2 M2,18 C18,18 18,2 18,2" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>');
+  -webkit-mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIsMjggTDIsMiBMMjgsMiBNMiwxMCBDMTAsMTAgMTAsMiAxMCwyIE0yLDE4IEMxOCwxOCAxOCwyIDE4LDIiLz48L3N2Zz4=');
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIsMjggTDIsMiBMMjgsMiBNMiwxMCBDMTAsMTAgMTAsMiAxMCwyIE0yLDE4IEMxOCwxOCAxOCwyIDE4LDIiLz48L3N2Zz4=');
 }
 
 body.border-style-vintage .card-border-outer {
@@ -337,8 +337,8 @@ body.border-style-vintage .card-border-inner {
 /* 3. Luxury Outline Border Style */
 body.border-style-luxury .corner-ornament {
   display: block;
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2,28 L2,2 L28,2 M6,28 L6,6 L28,6 M10,28 L10,10 L28,10" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>');
-  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2,28 L2,2 L28,2 M6,28 L6,6 L28,6 M10,28 L10,10 L28,10" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>');
+  -webkit-mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIsMjggTDIsMiBMMjgsMiBNNiwyOCBMNiw2IEwyOCw2IE0xMCwyOCBMMTAsMTAgTDI4LDEwIi8+PC9zdmc+');
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIsMjggTDIsMiBMMjgsMiBNNiwyOCBMNiw2IEwyOCw2IE0xMCwyOCBMMTAsMTAgTDI4LDEwIi8+PC9zdmc+');
 }
 
 body.border-style-luxury .card-border-outer {
