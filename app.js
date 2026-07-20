@@ -110,7 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
      -------------------------------------------------------------------------- */
   function updateQRCode() {
     const url = encodeURIComponent(inputRsvpQrUrl.value || 'https://helene-and-william.wedding');
-    const activeTheme = document.querySelector('.theme-btn.active').dataset.theme;
+    const activeBtn = document.querySelector('.theme-btn.active');
+    const activeTheme = activeBtn ? activeBtn.dataset.theme : 'cream';
     
     let color = '4a0e17';
     let bgcolor = 'fdfbf7';
