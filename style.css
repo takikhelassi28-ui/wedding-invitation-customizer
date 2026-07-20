@@ -30,6 +30,8 @@
 /* Color Tokens for Toggles */
 .cream-bg { background-color: #FDFBF7; border: 1px solid #4A0E17; }
 .emerald-bg { background-color: #0F2A1D; border: 1px solid #D4AF37; }
+.sage-bg { background-color: #2A3A2C; border: 1px solid #E5C483; }
+.plum-bg { background-color: #2D1225; border: 1px solid #E6C594; }
 
 * {
   box-sizing: border-box;
@@ -209,23 +211,23 @@ body {
 
 /* Theme Selector Buttons */
 .theme-selector {
-  display: flex;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .theme-btn {
-  flex: 1;
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid var(--ui-border);
   color: var(--ui-text-muted);
-  padding: 10px 8px;
-  border-radius: 4px;
+  padding: 10px 12px;
+  border-radius: 6px;
   font-size: 11px;
   font-weight: 500;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -237,7 +239,7 @@ body {
 
 .theme-btn.active {
   border-color: var(--ui-accent);
-  background: rgba(189, 162, 108, 0.1);
+  background: rgba(189, 162, 108, 0.12);
   color: #fff;
 }
 
@@ -246,6 +248,7 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .sidebar-footer {
@@ -387,6 +390,22 @@ body {
   --card-secondary: #FDFBF7;
   --card-gold: #D4AF37;
   --card-accent: #173b2a;
+}
+
+.stationery-card[data-theme="sage"] {
+  --card-bg: #2A3A2C;
+  --card-primary: #E5C483;
+  --card-secondary: #F8F5F0;
+  --card-gold: #E5C483;
+  --card-accent: #3D543F;
+}
+
+.stationery-card[data-theme="plum"] {
+  --card-bg: #2D1225;
+  --card-primary: #E6C594;
+  --card-secondary: #FAF8F5;
+  --card-gold: #E6C594;
+  --card-accent: #4A1535;
 }
 
 /* Aspect Ratio Sizes (Base dimensions mapped via scale properties) */

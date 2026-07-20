@@ -111,16 +111,24 @@ document.addEventListener('DOMContentLoaded', () => {
      -------------------------------------------------------------------------- */
   function updateQRCode() {
     const url = encodeURIComponent(inputRsvpQrUrl.value || 'https://helene-and-william.wedding');
-    // Using a reliable public QR Code generator API (api.qrserver.com)
-    rsvpQrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${url}&color=4a0e17&bgcolor=fdfbf7`;
-    
-    // For Emerald Theme, match the QR code styling if color customization is active
     const activeTheme = document.querySelector('.theme-btn.active').dataset.theme;
+    
+    let color = '4a0e17';
+    let bgcolor = 'fdfbf7';
+    
     if (activeTheme === 'emerald') {
-      rsvpQrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${url}&color=d4af37&bgcolor=0f2a1d`;
+      color = 'd4af37';
+      bgcolor = '0f2a1d';
+    } else if (activeTheme === 'sage') {
+      color = 'e5c483';
+      bgcolor = '2a3a2c';
+    } else if (activeTheme === 'plum') {
+      color = 'e6c594';
+      bgcolor = '2d1225';
     }
+    
+    rsvpQrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${url}&color=${color}&bgcolor=${bgcolor}`;
   }
-
   /* --------------------------------------------------------------------------
      3. Bind Input Fields to Preview Elements
      -------------------------------------------------------------------------- */
