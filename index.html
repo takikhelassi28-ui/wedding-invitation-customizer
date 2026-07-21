@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=11">
+  <link rel="stylesheet" href="style.css?v=12">
 </head>
 <body class="customizer-app">
 
@@ -114,23 +114,34 @@
             <input type="text" id="input-year" value="MMXXVI" class="text-input">
           </div>
         </div>
-
-        <!-- Section: Bride & Groom -->
+        <!-- Section: Bride & Groom / Hosts -->
         <div class="form-section">
-          <h3>The Couple</h3>
+          <h3>The Couple / Hosts</h3>
           <div class="form-group">
-            <label for="input-bride-name">Bride's Full Name</label>
+            <label for="input-bride-name">Bride / Host 1 Full Name</label>
             <input type="text" id="input-bride-name" value="HÉLÈNE ADELAIDE DEVERAUX" class="text-input">
           </div>
           <div class="form-group">
-            <label for="input-groom-name">Groom's Full Name</label>
+            <label for="input-groom-name">Groom / Host 2 Full Name</label>
             <input type="text" id="input-groom-name" value="WILLIAM WENTWORTH ASTOR" class="text-input">
           </div>
         </div>
 
-        <!-- Section: Wedding Details -->
+        <!-- Section: Wedding / Event Details -->
         <div class="form-section">
-          <h3>Ceremony & Reception Details</h3>
+          <h3>Ceremony & Event Details</h3>
+          <div class="form-group">
+            <label for="input-invitation-intro">Invitation Intro Wording</label>
+            <input type="text" id="input-invitation-intro" value="TOGETHER WITH THEIR FAMILIES" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-invitation-request">Invitation Request Line</label>
+            <input type="text" id="input-invitation-request" value="REQUEST THE HONOR OF YOUR PRESENCE AT THEIR WEDDING CELEBRATION" class="text-input">
+          </div>
+          <div class="form-group">
+            <label for="input-evite-intro">Mobile Evite Intro Wording</label>
+            <input type="text" id="input-evite-intro" value="YOU ARE INVITED TO THE WEDDING OF" class="text-input">
+          </div>
           <div class="form-group">
             <label for="input-wedding-date">Date Wording</label>
             <input type="text" id="input-wedding-date" value="Saturday, the twelfth of September" class="text-input">
@@ -161,10 +172,13 @@
         <div class="form-section">
           <h3>Save The Date Settings</h3>
           <div class="form-group">
+            <label for="input-std-intro">Save The Date Heading</label>
+            <input type="text" id="input-std-intro" value="SAVE THE DATE" class="text-input">
+          </div>
+          <div class="form-group">
             <label for="input-std-date">Date Format (Short)</label>
             <input type="text" id="input-std-date" value="09.12.2026" class="text-input">
           </div>
-
         </div>
 
         <!-- Section: RSVP Details -->
@@ -310,7 +324,7 @@
                   <!-- Custom Monogram SVG inserted dynamically -->
                 </div>
                 
-                <p class="section-title">TOGETHER WITH THEIR FAMILIES</p>
+                <p class="section-title bind-invitation-intro">TOGETHER WITH THEIR FAMILIES</p>
                 
                 <h2 class="couple-names">
                   <span class="bind-bride-name">HÉLÈNE ADELAIDE DEVERAUX</span>
@@ -318,7 +332,7 @@
                   <span class="bind-groom-name">WILLIAM WENTWORTH ASTOR</span>
                 </h2>
                 
-                <p class="request-text">REQUEST THE HONOR OF YOUR PRESENCE<br>AT THEIR WEDDING CELEBRATION</p>
+                <p class="request-text bind-invitation-request">REQUEST THE HONOR OF YOUR PRESENCE AT THEIR WEDDING CELEBRATION</p>
                 
                 <div class="vintage-divider">
                   <svg viewBox="0 0 200 20" class="vintage-divider-svg">
@@ -419,7 +433,7 @@
                 </div>
                 <div class="crest-container"></div>
                 
-                <p class="section-title tracking-wide">SAVE THE DATE</p>
+                <p class="section-title tracking-wide bind-std-intro">SAVE THE DATE</p>
                 
                 <h2 class="couple-names-mini">
                   <span class="bind-bride-first">HÉLÈNE</span> & <span class="bind-groom-first">WILLIAM</span>
@@ -676,7 +690,7 @@
                 </div>
                 <div class="crest-container"></div>
                 
-                <p class="section-title">YOU ARE INVITED TO THE WEDDING OF</p>
+                <p class="section-title bind-evite-intro">YOU ARE INVITED TO THE WEDDING OF</p>
                 
                 <h1 class="couple-names-evite">
                   <span class="bind-bride-first">HÉLÈNE</span>
@@ -834,6 +848,6 @@
   </div>
 
   <!-- JavaScript logic -->
-  <script src="app.js?v=11"></script>
+  <script src="app.js?v=12"></script>
 </body>
 </html>

@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputVenueAddress = document.getElementById('input-venue-address');
   const inputReceptionText = document.getElementById('input-reception-text');
   
+  const inputInvitationIntro = document.getElementById('input-invitation-intro');
+  const inputInvitationRequest = document.getElementById('input-invitation-request');
+  const inputEviteIntro = document.getElementById('input-evite-intro');
+  const inputStdIntro = document.getElementById('input-std-intro');
+  
   const inputStdDate = document.getElementById('input-std-date');
 
   
@@ -208,6 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.bind-venue-name').forEach(el => el.innerText = inputVenueName.value);
     document.querySelectorAll('.bind-venue-address').forEach(el => el.innerText = inputVenueAddress.value);
     document.querySelectorAll('.bind-reception-text').forEach(el => el.innerText = inputReceptionText.value);
+
+    // Dynamic headers & custom event wording
+    document.querySelectorAll('.bind-invitation-intro').forEach(el => el.innerText = inputInvitationIntro.value);
+    document.querySelectorAll('.bind-invitation-request').forEach(el => el.innerText = inputInvitationRequest.value);
+    document.querySelectorAll('.bind-evite-intro').forEach(el => el.innerText = inputEviteIntro.value);
+    document.querySelectorAll('.bind-std-intro').forEach(el => el.innerText = inputStdIntro.value);
 
     // Save the Date specific
     document.querySelectorAll('.bind-std-date').forEach(el => el.innerText = inputStdDate.value);
