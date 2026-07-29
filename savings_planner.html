@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura - Premium Gamified Savings Planner Customizer</title>
+  <link rel="stylesheet" href="savings_planner.css">
+</head>
+<body class="ui-dark-mode palette-sage">
+
+  <!-- Ambient Mesh Glow Background -->
+  <div class="ambient-mesh">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+  </div>
+  
+  <!-- Premium Film Grain Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Controls (Frosted Bento Board) -->
+    <aside class="sidebar-panel">
+      <div class="sidebar-header">
+        <div class="brand-crest-wrapper">
+          <svg class="brand-crest-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 8v8M8 12h8"/>
+          </svg>
+          <div>
+            <h1>AURA</h1>
+            <p class="subtitle">Premium Customizer</p>
+          </div>
+        </div>
+        <button type="button" id="ui-theme-toggle" class="ui-theme-toggle-btn" title="Toggle Light/Dark Editor Mode">
+          <!-- Moon Icon (Default in dark mode) -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+
+      <div class="sidebar-tabs">
+        <button type="button" class="tab-btn active" data-tab="design">Styles</button>
+        <button type="button" class="tab-btn" data-tab="goals">Targets</button>
+        <button type="button" class="tab-btn" data-tab="funds">Funds</button>
+        <button type="button" class="tab-btn" data-tab="custom">Manual Logs</button>
+        <button type="button" class="tab-btn" data-tab="ai">AI Advisor</button>
+      </div>
+
+      <div class="sidebar-scroll">
+        
+        <!-- Tab 1: Design Styles -->
+        <div class="tab-content" id="tab-design">
+          <div class="double-bezel-card" style="margin-bottom: 16px;">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Design Profile</h3>
+              
+              <div class="form-group">
+                <label for="input-owner-name">Belongs To Name</label>
+                <input type="text" id="input-owner-name" value="ALEXANDRIA VANE" class="text-input">
+              </div>
+
+              <div class="form-group">
+                <label for="input-monogram">Crest Monogram</label>
+                <input type="text" id="input-monogram" value="AV" maxlength="2" class="text-input">
+              </div>
+            </div>
+          </div>
+
+          <div class="double-bezel-card">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Color Palette</h3>
+              <div class="palette-grid">
+                <button type="button" class="palette-btn active" data-palette="sage">
+                  <div class="palette-colors-row">
+                    <span class="palette-color" style="background:#5c6e58;"></span>
+                    <span class="palette-color" style="background:#fdfbf7;"></span>
+                    <span class="palette-color" style="background:#c29d53;"></span>
+                  </div>
+                  <span class="palette-name">Vintage Sage</span>
+                </button>
+                <button type="button" class="palette-btn" data-palette="emerald">
+                  <div class="palette-colors-row">
+                    <span class="palette-color" style="background:#1e4620;"></span>
+                    <span class="palette-color" style="background:#f5f9f6;"></span>
+                    <span class="palette-color" style="background:#d4af37;"></span>
+                  </div>
+                  <span class="palette-name">Dark Emerald</span>
+                </button>
+                <button type="button" class="palette-btn" data-palette="espresso">
+                  <div class="palette-colors-row">
+                    <span class="palette-color" style="background:#4a3e3d;"></span>
+                    <span class="palette-color" style="background:#fbf9f6;"></span>
+                    <span class="palette-color" style="background:#d48f76;"></span>
+                  </div>
+                  <span class="palette-name">Espresso</span>
+                </button>
+                <button type="button" class="palette-btn" data-palette="indigo">
+                  <div class="palette-colors-row">
+                    <span class="palette-color" style="background:#37446b;"></span>
+                    <span class="palette-color" style="background:#f6f8fb;"></span>
+                    <span class="palette-color" style="background:#a18a5e;"></span>
+                  </div>
+                  <span class="palette-name">Midnight Indigo</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Targets -->
+        <div class="tab-content" id="tab-goals" style="display: none;">
+          <div class="double-bezel-card" style="margin-bottom: 16px;">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Yearly Target</h3>
+              <div class="form-group">
+                <label for="input-yearly-target">Annual Savings Goal</label>
+                <input type="text" id="input-yearly-target" value="$12,000" class="text-input">
+              </div>
+              <div class="form-group">
+                <label for="input-monthly-income">Monthly Income Baseline</label>
+                <input type="text" id="input-monthly-income" value="$4,000" class="text-input">
+              </div>
+              <div class="form-group">
+                <label for="input-yearly-motive">Core Motivation / Why</label>
+                <input type="text" id="input-yearly-motive" value="Financial Freedom & Peace of Mind" class="text-input">
+              </div>
+            </div>
+          </div>
+
+          <div class="double-bezel-card">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Simplified Budget</h3>
+              <div class="form-group">
+                <label for="range-fixed-pct">Fixed Needs %</label>
+                <div class="range-slider-group">
+                  <input type="range" id="range-fixed-pct" min="20" max="80" value="50" class="range-slider">
+                  <span class="range-val" id="val-fixed-pct">50%</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="range-save-pct">Future Savings %</label>
+                <div class="range-slider-group">
+                  <input type="range" id="range-save-pct" min="10" max="50" value="30" class="range-slider">
+                  <span class="range-val" id="val-save-pct">30%</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="range-flex-pct">Flex Spend %</label>
+                <div class="range-slider-group">
+                  <input type="range" id="range-flex-pct" min="10" max="50" value="20" class="range-slider" disabled>
+                  <span class="range-val" id="val-flex-pct">20%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Sinking Funds -->
+        <div class="tab-content" id="tab-funds" style="display: none;">
+          <div class="double-bezel-card">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Sinking Funds Jars</h3>
+              <div class="funds-builder-list">
+                <div class="fund-input-item" style="display:flex; align-items:center; gap:6px;">
+                  <input type="text" id="fund-name-0" value="Emergency Fund" class="text-input" style="flex:2;" placeholder="Name">
+                  <input type="number" id="fund-current-0" value="1000" class="text-input" style="width:65px;" placeholder="Saved">
+                  <input type="number" id="fund-target-0" value="5000" class="text-input" style="width:65px;" placeholder="Goal">
+                </div>
+                <div class="fund-input-item" style="display:flex; align-items:center; gap:6px;">
+                  <input type="text" id="fund-name-1" value="Travel & Escape" class="text-input" style="flex:2;" placeholder="Name">
+                  <input type="number" id="fund-current-1" value="3000" class="text-input" style="width:65px;" placeholder="Saved">
+                  <input type="number" id="fund-target-1" value="3000" class="text-input" style="width:65px;" placeholder="Goal">
+                </div>
+                <div class="fund-input-item" style="display:flex; align-items:center; gap:6px;">
+                  <input type="text" id="fund-name-2" value="Home Upgrade" class="text-input" style="flex:2;" placeholder="Name">
+                  <input type="number" id="fund-current-2" value="0" class="text-input" style="width:65px;" placeholder="Saved">
+                  <input type="number" id="fund-target-2" value="4000" class="text-input" style="width:65px;" placeholder="Goal">
+                </div>
+                <div class="fund-input-item" style="display:flex; align-items:center; gap:6px;">
+                  <input type="text" id="fund-name-3" value="Vehicle Fund" class="text-input" style="flex:2;" placeholder="Name">
+                  <input type="number" id="fund-current-3" value="0" class="text-input" style="width:65px;" placeholder="Saved">
+                  <input type="number" id="fund-target-3" value="2500" class="text-input" style="width:65px;" placeholder="Goal">
+                </div>
+                <div class="fund-input-item" style="display:flex; align-items:center; gap:6px;">
+                  <input type="text" id="fund-name-4" value="Health Wellness" class="text-input" style="flex:2;" placeholder="Name">
+                  <input type="number" id="fund-current-4" value="0" class="text-input" style="width:65px;" placeholder="Saved">
+                  <input type="number" id="fund-target-4" value="1500" class="text-input" style="width:65px;" placeholder="Goal">
+                </div>
+                <div class="fund-input-item" style="display:flex; align-items:center; gap:6px;">
+                  <input type="text" id="fund-name-5" value="Special Events" class="text-input" style="flex:2;" placeholder="Name">
+                  <input type="number" id="fund-current-5" value="0" class="text-input" style="width:65px;" placeholder="Saved">
+                  <input type="number" id="fund-target-5" value="1000" class="text-input" style="width:65px;" placeholder="Goal">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Manual Customizer Logs -->
+        <div class="tab-content" id="tab-custom" style="display: none;">
+          <!-- Section 1: Daily Micro-Savings Config -->
+          <div class="double-bezel-card" style="margin-bottom: 16px;">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Daily Planner Config</h3>
+              <div class="form-group">
+                <label for="input-daily-habit-desc">Daily Quest Instructions</label>
+                <textarea id="input-daily-habit-desc" class="text-input" style="height:60px;">A gamified calendar designed to anchor savings habits. Every day, you start with 5 Health Points (hearts). Every time you spend money on a non-essential impulse item, cross off one heart. Fill in the No-Spend checkbox if you spend nothing beyond your fixed needs, and note down your daily micro-savings ($1, $5, or $10 saved from choosing not to buy coffee/snacks).</textarea>
+              </div>
+              <div class="form-group">
+                <label for="input-daily-save-val">Default Daily Save Value</label>
+                <input type="text" id="input-daily-save-val" value="$5" class="text-input">
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Weekly Savings Config -->
+          <div class="double-bezel-card" style="margin-bottom: 16px;">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Weekly Challenge Config</h3>
+              <div class="form-group">
+                <label for="input-weekly-goal">Weekly Challenge Target</label>
+                <input type="text" id="input-weekly-goal" value="$1,378" class="text-input">
+              </div>
+              <div class="form-group">
+                <label for="select-weekly-style">Weekly Deposit Scheme</label>
+                <select id="select-weekly-style" class="text-input">
+                  <option value="progressive">Progressive ($1, $2, ..., $52)</option>
+                  <option value="fixed">Fixed Weekly Goal (e.g. $25/week)</option>
+                  <option value="double">Double Progressive ($2, $4, ..., $104)</option>
+                  <option value="custom">Custom Values</option>
+                </select>
+              </div>
+              <div class="form-group" id="group-custom-weekly" style="display:none;">
+                <label for="input-weekly-custom-list">Custom Weekly Values (comma separated)</label>
+                <input type="text" id="input-weekly-custom-list" value="10,15,20,25,30" class="text-input" placeholder="e.g. 10,20,30...">
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Monthly Roadmap Milestones Config -->
+          <div class="double-bezel-card">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">12-Month Roadmap Details</h3>
+              <div class="roadmap-accordion-container" style="max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px;">
+                <div class="form-group" style="margin-bottom: 8px;">
+                  <label for="input-roadmap-0" style="font-size:10px;">January Milestone</label>
+                  <input type="text" id="input-roadmap-0" value="Establish emergency buffers and set monthly direct transfers." class="text-input">
+                </div>
+                <div class="form-group" style="margin-bottom: 8px;">
+                  <label for="input-roadmap-1" style="font-size:10px;">February Milestone</label>
+                  <input type="text" id="input-roadmap-1" value="Identify secondary spending filters and run impulse-budget trials." class="text-input">
+                </div>
+                <div class="form-group" style="margin-bottom: 8px;">
+                  <label for="input-roadmap-2" style="font-size:10px;">March Milestone</label>
+                  <input type="text" id="input-roadmap-2" value="Review Q1 momentum and adjust flexible envelopes." class="text-input">
+                </div>
+                <div class="form-group" style="margin-bottom: 8px;">
+                  <label for="input-roadmap-3" style="font-size:10px;">April Milestone</label>
+                  <input type="text" id="input-roadmap-3" value="Spring reset of sinking fund milestones." class="text-input">
+                </div>
+                <div class="form-group" style="margin-bottom: 8px;">
+                  <label for="input-roadmap-4" style="font-size:10px;">May Milestone</label>
+                  <input type="text" id="input-roadmap-4" value="Pre-travel allocations and focus on micro-saves." class="text-input">
+                </div>
+                <div class="form-group" style="margin-bottom: 8px;">
+                  <label for="input-roadmap-5" style="font-size:10px;">June Milestone</label>
+                  <input type="text" id="input-roadmap-5" value="Mid-year reflection & Q2 progress review." class="text-input">
+                </div>
+                <div class="form-group" style="margin-bottom: 8px;">
+                  <label for="input-roadmap-6" style="font-size:10px;">July Milestone</label>
+                  <input type="text" id="input-roadmap-6" value="Maintain no-spend schedules during high temptation weeks." class="text-input">
+                </div>
+                <div class="form-group" style="margin-bottom: 8px;">
+                  <label for="input-roadmap-7" style="font-size:10px;">August Milestone</label>
+                  <input type="text" id="input-roadmap-7" value="Automate minor weekly challenge checks." class="text-input">
+                </div>
+                <div class="form-group" style="margin-bottom: 8px;">
+                  <label for="input-roadmap-8" style="font-size:10px;">September Milestone</label>
+                  <input type="text" id="input-roadmap-8" value="Q3 health check: evaluate current net allocations." class="text-input">
+                </div>
+                <div class="form-group" style="margin-bottom: 8px;">
+                  <label for="input-roadmap-9" style="font-size:10px;">October Milestone</label>
+                  <input type="text" id="input-roadmap-9" value="Accumulate buffers for holiday expenses inside sinking funds." class="text-input">
+                </div>
+                <div class="form-group" style="margin-bottom: 8px;">
+                  <label for="input-roadmap-10" style="font-size:10px;">November Milestone</label>
+                  <input type="text" id="input-roadmap-10" value="Gamified envelope sprint towards final goals." class="text-input">
+                </div>
+                <div class="form-group" style="margin-bottom: 8px;">
+                  <label for="input-roadmap-11" style="font-size:10px;">December Milestone</label>
+                  <input type="text" id="input-roadmap-11" value="Final road check: celebrate wins and sketch Q1 targets." class="text-input">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 5: AI Assistant / Advisor -->
+        <div class="tab-content" id="tab-ai" style="display: none;">
+          <div class="double-bezel-card" style="margin-bottom: 16px;">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">AI Savings Blueprint</h3>
+              <p class="section-intro-text" style="font-size:11px; color:var(--text-muted); margin-bottom:12px; line-height:1.4;">
+                Let our AI Financial Planner craft a personalized micro-saving habit plan, yearly roadmap, and optimized budget categories.
+              </p>
+              
+              <div class="form-group">
+                <label for="ai-monthly-income">Your Monthly Income ($)</label>
+                <input type="number" id="ai-monthly-income" value="4000" class="text-input" placeholder="e.g. 4000">
+              </div>
+              
+              <div class="form-group">
+                <label for="ai-savings-goal">Yearly Savings Target ($)</label>
+                <input type="number" id="ai-savings-goal" value="12000" class="text-input" placeholder="e.g. 12000">
+              </div>
+              
+              <div class="form-group">
+                <label for="ai-savings-persona">Savings Personality</label>
+                <select id="ai-savings-persona" class="text-input">
+                  <option value="balanced" selected>Balanced Frugalist (50/30/20 Rule)</option>
+                  <option value="aggressive">Aggressive Builder (30/60/10 Rule)</option>
+                  <option value="relaxed">Relaxed Saver (60/15/25 Rule)</option>
+                  <option value="frugal">Extreme No-Spend Quest</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="ai-custom-instructions">Focus Area / Custom Needs</label>
+                <textarea id="ai-custom-instructions" class="text-input" style="height: 70px;" placeholder="e.g. Skip expensive coffee, save for a new laptop, plan to cut dining costs."></textarea>
+              </div>
+              
+              <button type="button" id="btn-generate-ai-plan" class="premium-btn" style="width: 100%; justify-content: center; margin-top: 8px;">
+                <span>Generate AI Plan</span>
+                <div class="btn-icon-circle">
+                  <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Simulated AI Console Card -->
+          <div class="double-bezel-card" id="ai-console-card" style="display: none; transition: all 0.3s ease;">
+            <div class="double-bezel-inner" style="background: rgba(10,12,15,0.9); border: 1px solid var(--print-primary);">
+              <h4 style="font-size:10px; font-weight:700; color:var(--print-gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+                <span class="pulse-indicator" style="width:6px; height:6px; background:#22c55e; border-radius:50%; display:inline-block; animation: pulse 1.5s infinite;"></span> AI Financial Analysis
+              </h4>
+              
+              <div class="ai-terminal-output" id="ai-terminal-output" style="font-family:'Courier New', monospace; font-size:11px; color:#a3b8cc; max-height:220px; overflow-y:auto; line-height:1.5; white-space:pre-wrap; padding: 4px; border-radius:4px; margin-bottom:12px;"></div>
+              
+              <button type="button" id="btn-apply-ai-plan" class="premium-btn" style="width: 100%; justify-content: center; background: linear-gradient(135deg, var(--print-primary) 0%, var(--print-gold) 100%); display: none;">
+                <span>Apply Plan to Customizer</span>
+                <div class="btn-icon-circle">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- Main Workspace Preview -->
+    <main class="workspace-area">
+      <header class="workspace-header">
+        <h2>Savings Customizer Suite</h2>
+        <div class="workspace-actions">
+          <button type="button" id="btn-edit-mode-toggle" class="ghost-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px; height:14px; margin-right:4px;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            <span>Direct Edit Mode: Off</span>
+          </button>
+          
+          <button type="button" id="btn-view-toggle" class="ghost-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+            <span>Grid View</span>
+          </button>
+          
+          <div class="double-bezel-card" style="padding: 3px; border-radius: 15px;">
+            <div class="double-bezel-inner" style="padding: 4px 10px; border-radius: 10px; display:flex; align-items:center; gap:8px;">
+              <span style="font-size:9px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Zoom</span>
+              <input type="range" id="zoom-slider" min="40" max="100" value="70" class="range-slider" style="width: 80px;">
+              <span class="range-val" id="zoom-val" style="min-width: 25px;">70%</span>
+            </div>
+          </div>
+          
+          <!-- Premium Island CTA button -->
+          <button type="button" class="premium-btn" onclick="window.print()">
+            <span>Print Book PDF</span>
+            <div class="btn-icon-circle">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+          </button>
+        </div>
+      </header>
+
+      <!-- Scrollable Previews Grid -->
+      <div class="preview-canvas">
+        <div class="previews-scroll-wrapper" style="transform: scale(0.7);">
+          
+          <!-- PAGE 1: Luxury Cover Page -->
+          <section class="planner-page" id="page-cover">
+            <div class="page-content">
+              <div class="cover-layout">
+                <div class="cover-sparkle cover-sparkle-1">
+                  <svg viewBox="0 0 100 100" width="24" height="24" fill="currentColor"><path d="M50 0 C50 35, 65 50, 100 50 C65 50, 50 65, 50 100 C50 65, 35 50, 0 50 C35 50, 50 35, 50 0 Z"/></svg>
+                </div>
+                <div class="cover-sparkle cover-sparkle-2">
+                  <svg viewBox="0 0 100 100" width="16" height="16" fill="currentColor"><path d="M50 0 C50 35, 65 50, 100 50 C65 50, 50 65, 50 100 C50 65, 35 50, 0 50 C35 50, 50 35, 50 0 Z"/></svg>
+                </div>
+                
+                <div class="cover-crest">
+                  <svg viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                    <circle cx="50" cy="50" r="44" stroke-dasharray="1 3"/>
+                    <circle cx="50" cy="50" r="41" stroke-width="0.5"/>
+                    <path d="M50 9 C35 15, 20 30, 20 50 C20 70, 35 85, 50 91 C65 85, 80 70, 80 50 C80 30, 65 15, 50 9" stroke-width="0.75"/>
+                  </svg>
+                  <span class="cover-crest-monogram" id="bind-monogram">AV</span>
+                </div>
+                
+                <div class="cover-titles">
+                  <span class="cover-eyebrow">The Financial Arc</span>
+                  <h1 id="bind-cover-title">Premium Gamified<br>Savings Planner</h1>
+                  <div class="cover-divider"></div>
+                  <p class="cover-subtitle">Daily, Weekly, Monthly & Yearly Micro-Habits</p>
+                </div>
+                
+                <div class="cover-belongs-to">
+                  <label>This Journal Belongs To</label>
+                  <span class="cover-owner-name" id="bind-owner-name">ALEXANDRIA VANE</span>
+                </div>
+              </div>
+              <footer class="print-footer">
+                <span>AURA Luxury Planners</span>
+                <span class="print-footer-num">Page 1</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- PAGE 2: Yearly Financial Road Map -->
+          <section class="planner-page" id="page-roadmap">
+            <div class="page-content">
+              <header class="print-header">
+                <div class="print-header-left">
+                  <span class="print-header-eyebrow">Yearly Highway</span>
+                  <h3>Savings Road Map</h3>
+                </div>
+                <span class="print-header-desc">12-Month Financial Journey</span>
+              </header>
+              
+              <div class="roadmap-layout">
+                <div class="roadmap-header-card">
+                  <div class="roadmap-header-item">
+                    <label>Annual Target</label>
+                    <span id="bind-roadmap-target">$12,000</span>
+                  </div>
+                  <div class="roadmap-header-item" style="flex:2;">
+                    <label>My "Why" / Motivation</label>
+                    <span id="bind-roadmap-motive">Financial Freedom & Peace of Mind</span>
+                  </div>
+                </div>
+                
+                <div class="roadmap-timeline-container">
+                  <div class="roadmap-line"></div>
+                  <div class="roadmap-grid">
+                    <div class="roadmap-node">
+                      <div class="roadmap-node-dot"></div>
+                      <div class="roadmap-node-card">
+                        <h5>January</h5>
+                        <p id="roadmap-desc-0">Establish emergency buffers and set monthly direct transfers.</p>
+                      </div>
+                    </div>
+                    <div class="roadmap-node">
+                      <div class="roadmap-node-dot"></div>
+                      <div class="roadmap-node-card">
+                        <h5>February</h5>
+                        <p id="roadmap-desc-1">Identify secondary spending filters and run impulse-budget trials.</p>
+                      </div>
+                    </div>
+                    <div class="roadmap-node">
+                      <div class="roadmap-node-dot"></div>
+                      <div class="roadmap-node-card">
+                        <h5>March</h5>
+                        <p id="roadmap-desc-2">Review Q1 momentum and adjust flexible envelopes.</p>
+                      </div>
+                    </div>
+                    <div class="roadmap-node">
+                      <div class="roadmap-node-dot"></div>
+                      <div class="roadmap-node-card">
+                        <h5>April</h5>
+                        <p id="roadmap-desc-3">Spring reset of sinking fund milestones.</p>
+                      </div>
+                    </div>
+                    <div class="roadmap-node">
+                      <div class="roadmap-node-dot"></div>
+                      <div class="roadmap-node-card">
+                        <h5>May</h5>
+                        <p id="roadmap-desc-4">Pre-travel allocations and focus on micro-saves.</p>
+                      </div>
+                    </div>
+                    <div class="roadmap-node">
+                      <div class="roadmap-node-dot"></div>
+                      <div class="roadmap-node-card">
+                        <h5>June</h5>
+                        <p id="roadmap-desc-5">Mid-year reflection & Q2 progress review.</p>
+                      </div>
+                    </div>
+                    <div class="roadmap-node">
+                      <div class="roadmap-node-dot"></div>
+                      <div class="roadmap-node-card">
+                        <h5>July</h5>
+                        <p id="roadmap-desc-6">Maintain no-spend schedules during high temptation weeks.</p>
+                      </div>
+                    </div>
+                    <div class="roadmap-node">
+                      <div class="roadmap-node-dot"></div>
+                      <div class="roadmap-node-card">
+                        <h5>August</h5>
+                        <p id="roadmap-desc-7">Automate minor weekly challenge checks.</p>
+                      </div>
+                    </div>
+                    <div class="roadmap-node">
+                      <div class="roadmap-node-dot"></div>
+                      <div class="roadmap-node-card">
+                        <h5>September</h5>
+                        <p id="roadmap-desc-8">Q3 health check: evaluate current net allocations.</p>
+                      </div>
+                    </div>
+                    <div class="roadmap-node">
+                      <div class="roadmap-node-dot"></div>
+                      <div class="roadmap-node-card">
+                        <h5>October</h5>
+                        <p id="roadmap-desc-9">Accumulate buffers for holiday expenses inside sinking funds.</p>
+                      </div>
+                    </div>
+                    <div class="roadmap-node">
+                      <div class="roadmap-node-dot"></div>
+                      <div class="roadmap-node-card">
+                        <h5>November</h5>
+                        <p id="roadmap-desc-10">Gamified envelope sprint towards final goals.</p>
+                      </div>
+                    </div>
+                    <div class="roadmap-node">
+                      <div class="roadmap-node-dot"></div>
+                      <div class="roadmap-node-card">
+                        <h5>December</h5>
+                        <p id="roadmap-desc-11">Final road check: celebrate wins and sketch Q1 targets.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <footer class="print-footer">
+                <span>AURA Luxury Planners</span>
+                <span class="print-footer-num">Page 2</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- PAGE 3: Simplified Monthly Budget -->
+          <section class="planner-page" id="page-budget">
+            <div class="page-content">
+              <header class="print-header">
+                <div class="print-header-left">
+                  <span class="print-header-eyebrow">Monthly Split</span>
+                  <h3>The 3-Category Budget</h3>
+                </div>
+                <span class="print-header-badge">Budget Framework</span>
+              </header>
+              
+              <div class="budget-layout">
+                <div class="budget-circle-row">
+                  <div class="budget-circle-box">
+                    <h4>Fixed Needs</h4>
+                    <div class="budget-circle-graphics">
+                      <svg viewBox="0 0 100 100" width="80" height="80">
+                        <circle cx="50" cy="50" r="42" stroke="var(--print-border)" stroke-width="3" fill="none"/>
+                        <circle id="circle-fixed" cx="50" cy="50" r="42" stroke="var(--print-primary)" stroke-width="5" fill="none" stroke-dasharray="263.8" stroke-dashoffset="131.9"/>
+                      </svg>
+                      <span class="circle-val" id="bind-fixed-pct">50%</span>
+                    </div>
+                    <p>Rent, Utilities, Food & Core Obligations</p>
+                  </div>
+                  <div class="budget-circle-box">
+                    <h4>Future Savings</h4>
+                    <div class="budget-circle-graphics">
+                      <svg viewBox="0 0 100 100" width="80" height="80">
+                        <circle cx="50" cy="50" r="42" stroke="var(--print-border)" stroke-width="3" fill="none"/>
+                        <circle id="circle-save" cx="50" cy="50" r="42" stroke="var(--print-primary)" stroke-width="5" fill="none" stroke-dasharray="263.8" stroke-dashoffset="184.7"/>
+                      </svg>
+                      <span class="circle-val" id="bind-save-pct">30%</span>
+                    </div>
+                    <p>Emergency, Investments & Sinking Funds</p>
+                  </div>
+                  <div class="budget-circle-box">
+                    <h4>Flex Spend</h4>
+                    <div class="budget-circle-graphics">
+                      <svg viewBox="0 0 100 100" width="80" height="80">
+                        <circle cx="50" cy="50" r="42" stroke="var(--print-border)" stroke-width="3" fill="none"/>
+                        <circle id="circle-flex" cx="50" cy="50" r="42" stroke="var(--print-gold)" stroke-width="5" fill="none" stroke-dasharray="263.8" stroke-dashoffset="211.0"/>
+                      </svg>
+                      <span class="circle-val" id="bind-flex-pct">20%</span>
+                    </div>
+                    <p>Dining, Entertainment & Guilt-Free Purchases</p>
+                  </div>
+                </div>
+                
+                <div class="budget-table-section">
+                  <span class="budget-table-title">Allocation Ledger</span>
+                  <table class="budget-ledger">
+                    <thead>
+                      <tr>
+                        <th style="width: 45%;">Category/Purpose</th>
+                        <th style="width: 25%;">Target %</th>
+                        <th style="width: 30%;">Calculated Cash</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Fixed Needs Budget (Housing, Food, Bills)</td>
+                        <td id="bind-table-fixed-pct">50%</td>
+                        <td id="bind-cash-fixed">$0.00</td>
+                      </tr>
+                      <tr>
+                        <td>Future Savings (Sinking Funds, Emergency, Retirement)</td>
+                        <td id="bind-table-save-pct">30%</td>
+                        <td id="bind-cash-save">$0.00</td>
+                      </tr>
+                      <tr>
+                        <td>Flex Spend (Shopping, Subscriptions, Fun)</td>
+                        <td id="bind-table-flex-pct">20%</td>
+                        <td id="bind-cash-flex">$0.00</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Total Income Baseline</strong></td>
+                        <td><strong>100%</strong></td>
+                        <td><strong id="bind-cash-total">$0.00</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+                <div class="budget-notes-box">
+                  <strong>How to use</strong>: People who struggle to save often get bogged down in dozens of budget categories. Aura uses a 3-split rule. Write down your total income. Calculate the three numbers above. Allocate your fixed needs first, transfer your savings immediately to automated accounts, and use the rest as free-spend cash!
+                </div>
+              </div>
+              
+              <footer class="print-footer">
+                <span>AURA Luxury Planners</span>
+                <span class="print-footer-num">Page 3</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- PAGE 4: Weekly Impulse-Buster Ledger -->
+          <section class="planner-page" id="page-impulse">
+            <div class="page-content">
+              <header class="print-header">
+                <div class="print-header-left">
+                  <span class="print-header-eyebrow">Weekly Buffer</span>
+                  <h3>Impulse-Buster Log</h3>
+                </div>
+                <span class="print-header-badge">Impulse Shield</span>
+              </header>
+              
+              <div class="impulse-layout">
+                <div class="impulse-tracker-card">
+                  <h4 class="impulse-instruction-title">The 30-Day Cool Down Rule</h4>
+                  <p>When you feel the urge to buy something non-essential, you MUST write it down here first. Wait exactly 30 days. If you still want the item and can afford it, you may purchase it. Often, the urge disappears, and you can redirect the cost of the item straight into your savings jars!</p>
+                </div>
+                
+                <table class="impulse-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 40%;">Desire (What did you want to buy?)</th>
+                      <th style="width: 15%;">Cost</th>
+                      <th style="width: 15%;">Log Date</th>
+                      <th style="width: 15%;">30d Checked</th>
+                      <th style="width: 15%;">Saved?</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Designer Leather Booties</td>
+                      <td>$180</td>
+                      <td>Jan 04</td>
+                      <td><span class="checkbox-spot"></span></td>
+                      <td>Yes! ($180 Saved)</td>
+                    </tr>
+                    <tr>
+                      <td>Mechanical Keycaps Set</td>
+                      <td>$65</td>
+                      <td>Jan 12</td>
+                      <td><span class="checkbox-spot"></span></td>
+                      <td>Yes! ($65 Saved)</td>
+                    </tr>
+                    <tr>
+                      <td>High-End Coffee Espresso Grinder</td>
+                      <td>$240</td>
+                      <td>Feb 01</td>
+                      <td><span class="checkbox-spot"></span></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td><span class="checkbox-spot"></span></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td><span class="checkbox-spot"></span></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td><span class="checkbox-spot"></span></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td><span class="checkbox-spot"></span></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td><span class="checkbox-spot"></span></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td><span class="checkbox-spot"></span></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td><span class="checkbox-spot"></span></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <footer class="print-footer">
+                <span>AURA Luxury Planners</span>
+                <span class="print-footer-num">Page 4</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- PAGE 5: Daily Micro-Savings & HP (Health Points) Tracker -->
+          <section class="planner-page" id="page-daily">
+            <div class="page-content">
+              <header class="print-header">
+                <div class="print-header-left">
+                  <span class="print-header-eyebrow">Daily Habiteer</span>
+                  <h3>Micro-Savings & HP Quest</h3>
+                </div>
+                <span class="print-header-badge">Daily HP Tracker</span>
+              </header>
+              
+              <div class="daily-layout">
+                <div class="daily-header-desc">
+                  <p id="bind-daily-desc">A gamified calendar designed to anchor savings habits. Every day, you start with 5 Health Points (hearts). Every time you spend money on a non-essential impulse item, cross off one heart. Fill in the No-Spend checkbox if you spend nothing beyond your fixed needs, and note down your daily micro-savings ($1, $5, or $10 saved from choosing not to buy coffee/snacks).</p>
+                  
+                  <div class="daily-hp-metric">
+                    <label>Initial Health Points</label>
+                    <div class="daily-hp-hearts">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="daily-grid" id="daily-days-grid">
+                  <!-- JS to render 30 customizable day tiles -->
+                </div>
+              </div>
+              
+              <footer class="print-footer">
+                <span>AURA Luxury Planners</span>
+                <span class="print-footer-num">Page 5</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- PAGE 6: 52-Week Savings Challenge Grid -->
+          <section class="planner-page" id="page-weekly">
+            <div class="page-content">
+              <header class="print-header">
+                <div class="print-header-left">
+                  <span class="print-header-eyebrow">Weekly Velocity</span>
+                  <h3>52-Week Savings Challenge</h3>
+                </div>
+                <span class="print-header-badge">Weekly Goal</span>
+              </header>
+              
+              <div class="challenge-layout">
+                <div class="challenge-summary-bar">
+                  <div class="challenge-summary-item">
+                    <label>Final Goal</label>
+                    <span id="weekly-goal-target">$1,378</span>
+                  </div>
+                  <div class="challenge-summary-item">
+                    <label>Weeks Logged</label>
+                    <span id="weekly-weeks-count">0 / 52</span>
+                  </div>
+                  <div class="challenge-summary-item">
+                    <label>Total Saved</label>
+                    <span id="weekly-total-saved">$0.00</span>
+                  </div>
+                </div>
+                
+                <div class="challenge-grid-container" id="weekly-challenge-grid">
+                  <!-- JS dynamically renders 52 weeks -->
+                </div>
+              </div>
+              
+              <footer class="print-footer">
+                <span>AURA Luxury Planners</span>
+                <span class="print-footer-num">Page 6</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- PAGE 7: 100-Envelope Savings Vault Bento -->
+          <section class="planner-page" id="page-envelope">
+            <div class="page-content">
+              <header class="print-header">
+                <div class="print-header-left">
+                  <span class="print-header-eyebrow">Envelopes</span>
+                  <h3>100-Envelope Savings Vault</h3>
+                </div>
+                <span class="print-header-badge">Gamified Bento</span>
+              </header>
+              
+              <div class="envelope-layout">
+                <div class="envelope-summary-card">
+                  <div class="envelope-progress-box">
+                    <span class="envelope-progress-label">Total Completion Progress</span>
+                    <div class="envelope-progress-bar-bg">
+                      <div class="envelope-progress-bar-fill" id="envelope-progress-bar"></div>
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 20px;">
+                    <div class="challenge-summary-item">
+                      <label>Vault Target</label>
+                      <span>$5,050.00</span>
+                    </div>
+                    <div class="challenge-summary-item">
+                      <label>Envelopes Locked</label>
+                      <span id="envelope-count">0 / 100</span>
+                    </div>
+                    <div class="challenge-summary-item">
+                      <label>Total Savings</label>
+                      <span id="envelope-savings">$0.00</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="envelope-bento-grid" id="envelope-bento-container">
+                  <!-- JS renders 100 envelopes -->
+                </div>
+              </div>
+              
+              <footer class="print-footer">
+                <span>AURA Luxury Planners</span>
+                <span class="print-footer-num">Page 7</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- PAGE 8: Sinking Funds Jars -->
+          <section class="planner-page" id="page-jars">
+            <div class="page-content">
+              <header class="print-header">
+                <div class="print-header-left">
+                  <span class="print-header-eyebrow">Monthly Reserves</span>
+                  <h3>Sinking Funds Tracker</h3>
+                </div>
+                <span class="print-header-badge">Visual Savings Jars</span>
+              </header>
+              
+              <div class="jars-layout">
+                <div class="jars-grid">
+                  <!-- Six jars rendering dynamically -->
+                  <div class="jar-item-card" id="jar-card-0">
+                    <div class="jar-svg-container">
+                      <div class="jar-liquid-fill" id="jar-fill-0" style="height: 20%;"></div>
+                      <svg class="jar-vector" viewBox="0 0 100 140">
+                        <path d="M35 15 L65 15 M35 15 C35 15, 30 25, 25 35 C20 45, 20 120, 20 120 C20 128, 28 132, 50 132 C72 132, 80 128, 80 120 C80 120, 80 45, 75 35 C70 25, 65 15, 65 15 M23 118 L77 118" />
+                        <ellipse cx="50" cy="15" rx="15" ry="3" />
+                        <ellipse cx="50" cy="22" rx="18" ry="4" />
+                      </svg>
+                    </div>
+                    <div class="jar-labels">
+                      <span class="jar-label-title" id="jar-title-0">Emergency Fund</span>
+                      <span class="jar-label-metrics" id="jar-metrics-0">$1,000 / $5,000</span>
+                    </div>
+                  </div>
+                  
+                  <div class="jar-item-card" id="jar-card-1">
+                    <div class="jar-svg-container">
+                      <div class="jar-liquid-fill" id="jar-fill-1" style="height: 10%;"></div>
+                      <svg class="jar-vector" viewBox="0 0 100 140">
+                        <path d="M35 15 L65 15 M35 15 C35 15, 30 25, 25 35 C20 45, 20 120, 20 120 C20 128, 28 132, 50 132 C72 132, 80 128, 80 120 C80 120, 80 45, 75 35 C70 25, 65 15, 65 15 M23 118 L77 118" />
+                        <ellipse cx="50" cy="15" rx="15" ry="3" />
+                        <ellipse cx="50" cy="22" rx="18" ry="4" />
+                      </svg>
+                    </div>
+                    <div class="jar-labels">
+                      <span class="jar-label-title" id="jar-title-1">Travel & Escape</span>
+                      <span class="jar-label-metrics" id="jar-metrics-1">$300 / $3,000</span>
+                    </div>
+                  </div>
+                  
+                  <div class="jar-item-card" id="jar-card-2">
+                    <div class="jar-svg-container">
+                      <div class="jar-liquid-fill" id="jar-fill-2" style="height: 0%;"></div>
+                      <svg class="jar-vector" viewBox="0 0 100 140">
+                        <path d="M35 15 L65 15 M35 15 C35 15, 30 25, 25 35 C20 45, 20 120, 20 120 C20 128, 28 132, 50 132 C72 132, 80 128, 80 120 C80 120, 80 45, 75 35 C70 25, 65 15, 65 15 M23 118 L77 118" />
+                        <ellipse cx="50" cy="15" rx="15" ry="3" />
+                        <ellipse cx="50" cy="22" rx="18" ry="4" />
+                      </svg>
+                    </div>
+                    <div class="jar-labels">
+                      <span class="jar-label-title" id="jar-title-2">Home Upgrade</span>
+                      <span class="jar-label-metrics" id="jar-metrics-2">$0 / $4,000</span>
+                    </div>
+                  </div>
+
+                  <div class="jar-item-card" id="jar-card-3">
+                    <div class="jar-svg-container">
+                      <div class="jar-liquid-fill" id="jar-fill-3" style="height: 0%;"></div>
+                      <svg class="jar-vector" viewBox="0 0 100 140">
+                        <path d="M35 15 L65 15 M35 15 C35 15, 30 25, 25 35 C20 45, 20 120, 20 120 C20 128, 28 132, 50 132 C72 132, 80 128, 80 120 C80 120, 80 45, 75 35 C70 25, 65 15, 65 15 M23 118 L77 118" />
+                        <ellipse cx="50" cy="15" rx="15" ry="3" />
+                        <ellipse cx="50" cy="22" rx="18" ry="4" />
+                      </svg>
+                    </div>
+                    <div class="jar-labels">
+                      <span class="jar-label-title" id="jar-title-3">Vehicle Fund</span>
+                      <span class="jar-label-metrics" id="jar-metrics-3">$0 / $2,500</span>
+                    </div>
+                  </div>
+
+                  <div class="jar-item-card" id="jar-card-4">
+                    <div class="jar-svg-container">
+                      <div class="jar-liquid-fill" id="jar-fill-4" style="height: 0%;"></div>
+                      <svg class="jar-vector" viewBox="0 0 100 140">
+                        <path d="M35 15 L65 15 M35 15 C35 15, 30 25, 25 35 C20 45, 20 120, 20 120 C20 128, 28 132, 50 132 C72 132, 80 128, 80 120 C80 120, 80 45, 75 35 C70 25, 65 15, 65 15 M23 118 L77 118" />
+                        <ellipse cx="50" cy="15" rx="15" ry="3" />
+                        <ellipse cx="50" cy="22" rx="18" ry="4" />
+                      </svg>
+                    </div>
+                    <div class="jar-labels">
+                      <span class="jar-label-title" id="jar-title-4">Health Wellness</span>
+                      <span class="jar-label-metrics" id="jar-metrics-4">$0 / $1,500</span>
+                    </div>
+                  </div>
+
+                  <div class="jar-item-card" id="jar-card-5">
+                    <div class="jar-svg-container">
+                      <div class="jar-liquid-fill" id="jar-fill-5" style="height: 0%;"></div>
+                      <svg class="jar-vector" viewBox="0 0 100 140">
+                        <path d="M35 15 L65 15 M35 15 C35 15, 30 25, 25 35 C20 45, 20 120, 20 120 C20 128, 28 132, 50 132 C72 132, 80 128, 80 120 C80 120, 80 45, 75 35 C70 25, 65 15, 65 15 M23 118 L77 118" />
+                        <ellipse cx="50" cy="15" rx="15" ry="3" />
+                        <ellipse cx="50" cy="22" rx="18" ry="4" />
+                      </svg>
+                    </div>
+                    <div class="jar-labels">
+                      <span class="jar-label-title" id="jar-title-5">Special Events</span>
+                      <span class="jar-label-metrics" id="jar-metrics-5">$0 / $1,000</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <footer class="print-footer">
+                <span>AURA Luxury Planners</span>
+                <span class="print-footer-num">Page 8</span>
+              </footer>
+            </div>
+          </section>
+
+          <!-- PAGE 9: Resiliency Reflection Journal -->
+          <section class="planner-page" id="page-reflection">
+            <div class="page-content">
+              <header class="print-header">
+                <div class="print-header-left">
+                  <span class="print-header-eyebrow">Cognitive Reflex</span>
+                  <h3>Resiliency & Habit Journal</h3>
+                </div>
+                <span class="print-header-badge">Habit Reflections</span>
+              </header>
+              
+              <div class="journal-layout">
+                <div class="journal-prompt-card">
+                  <span class="journal-prompt-eyebrow">Prompt 01: Positive Momentum</span>
+                  <h4>What were my major non-spending accomplishments this cycle? How did they feel emotionally?</h4>
+                  <div class="journal-prompt-lines">
+                    <div class="journal-line"></div>
+                    <div class="journal-line"></div>
+                    <div class="journal-line"></div>
+                  </div>
+                </div>
+                
+                <div class="journal-prompt-card">
+                  <span class="journal-prompt-eyebrow">Prompt 02: Friction Points</span>
+                  <h4>Where did my saving plan meet friction? What triggers (stress, social peer pressure, boredom) led to impulse spending?</h4>
+                  <div class="journal-prompt-lines">
+                    <div class="journal-line"></div>
+                    <div class="journal-line"></div>
+                    <div class="journal-line"></div>
+                  </div>
+                </div>
+                
+                <div class="journal-prompt-card">
+                  <span class="journal-prompt-eyebrow">Prompt 03: Adaptability</span>
+                  <h4>What systems or environment shifts will I install next week to lower temptation friction?</h4>
+                  <div class="journal-prompt-lines">
+                    <div class="journal-line"></div>
+                    <div class="journal-line"></div>
+                    <div class="journal-line"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <footer class="print-footer">
+                <span>AURA Luxury Planners</span>
+                <span class="print-footer-num">Page 9</span>
+              </footer>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="savings_planner.js"></script>
+</body>
+</html>

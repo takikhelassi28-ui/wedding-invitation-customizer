@@ -1,0 +1,1740 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================================================
+   Premium Gamified Savings Planner Customizer Stylesheet
+   Theme: Ethereal Glass (Dark Mode Editor) & Luxury Print Layouts
+   ========================================================================== */
+
+:root {
+  /* Editor Theme (Ethereal Glass Dark Mode Default) */
+  --bg-primary: #060814;
+  --bg-secondary: #0c0f24;
+  --glass-bg: rgba(10, 15, 36, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.15);
+  --text-main: #f3f4f6;
+  --text-muted: #94a3b8;
+  --accent-gold: #d4af37;
+  --accent-blue: #3b82f6;
+  --accent-glow: rgba(59, 130, 246, 0.15);
+  --ambient-orb-1: rgba(138, 154, 134, 0.15); /* Vintage Sage glow */
+  --ambient-orb-2: rgba(212, 175, 55, 0.08);  /* Gold glow */
+
+  /* Default Print Palette: Vintage Sage & Cream */
+  --print-bg: #fdfbf7;
+  --print-primary: #5c6e58;
+  --print-charcoal: #2a2e2b;
+  --print-gold: #c5a059;
+  --print-card-bg: #ffffff;
+  --print-border: rgba(92, 110, 88, 0.2);
+  --print-border-thick: rgba(92, 110, 88, 0.4);
+  --print-text-muted: #6b7280;
+}
+
+/* Print Palettes Definitions */
+.palette-sage {
+  --print-bg: #fcfbf7;
+  --print-primary: #5c6e58;
+  --print-charcoal: #2c2f2b;
+  --print-gold: #c29d53;
+  --print-card-bg: #ffffff;
+  --print-border: rgba(92, 110, 88, 0.22);
+  --print-border-thick: rgba(92, 110, 88, 0.45);
+}
+
+.palette-emerald {
+  --print-bg: #f5f9f6;
+  --print-primary: #1e4620;
+  --print-charcoal: #1c201c;
+  --print-gold: #d4af37;
+  --print-card-bg: #ffffff;
+  --print-border: rgba(30, 70, 32, 0.2);
+  --print-border-thick: rgba(30, 70, 32, 0.45);
+}
+
+.palette-espresso {
+  --print-bg: #fbf9f6;
+  --print-primary: #4a3e3d;
+  --print-charcoal: #2b2525;
+  --print-gold: #d48f76;
+  --print-card-bg: #ffffff;
+  --print-border: rgba(74, 62, 61, 0.2);
+  --print-border-thick: rgba(74, 62, 61, 0.45);
+}
+
+.palette-indigo {
+  --print-bg: #f6f8fb;
+  --print-primary: #37446b;
+  --print-charcoal: #222633;
+  --print-gold: #a18a5e;
+  --print-card-bg: #ffffff;
+  --print-border: rgba(55, 68, 107, 0.18);
+  --print-border-thick: rgba(55, 68, 107, 0.4);
+}
+
+/* Light Workspace Mode (Slight modifications for editor view) */
+body.ui-light-mode {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --glass-border-hover: rgba(15, 23, 42, 0.15);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --accent-glow: rgba(59, 130, 246, 0.08);
+}
+
+/* --- Core Page Resets --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  transition: background-color 0.5s ease;
+}
+
+/* Glowing Ambient Mesh Background for Ethereal Vibe */
+.ambient-mesh {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.8;
+  will-change: transform;
+}
+
+.orb-1 {
+  width: 50vw;
+  height: 50vw;
+  background: var(--ambient-orb-1);
+  top: -10vw;
+  right: -5vw;
+  animation: floatOrb1 25s infinite alternate ease-in-out;
+}
+
+.orb-2 {
+  width: 40vw;
+  height: 40vw;
+  background: var(--ambient-orb-2);
+  bottom: -10vw;
+  left: 5vw;
+  animation: floatOrb2 20s infinite alternate ease-in-out;
+}
+
+@keyframes floatOrb1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-8vw, 6vw) scale(1.1); }
+}
+
+@keyframes floatOrb2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(6vw, -6vw) scale(1.05); }
+}
+
+/* Noise overlay for premium physical paper texture */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* --- Layout Architecture --- */
+.app-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Sidebar Panel (Frosted Bento Control Board) --- */
+.sidebar-panel {
+  width: 410px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(25px) saturate(190%);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  border-right: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-shrink: 0;
+  z-index: 10;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.sidebar-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-crest-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-crest-icon {
+  width: 32px;
+  height: 32px;
+  stroke: var(--accent-gold);
+  stroke-width: 1.5;
+}
+
+.sidebar-header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.sidebar-header .subtitle {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.ui-theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.ui-theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--glass-border-hover);
+  transform: scale(1.05);
+}
+
+.ui-theme-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.5;
+}
+
+/* Sidebar Tab Swapper */
+.sidebar-tabs {
+  display: flex;
+  padding: 12px 24px;
+  gap: 8px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.tab-btn.active {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--glass-border);
+  color: var(--text-main);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar Scrollable Panel Form */
+.sidebar-scroll {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Custom Webkit scrollbar for premium feel */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 4px;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* --- Double-Bezel Card Frame UI --- */
+.double-bezel-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  padding: 6px;
+  border-radius: 20px;
+  transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.double-bezel-card:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.double-bezel-inner {
+  background: rgba(10, 12, 28, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+/* Form Styles */
+.form-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  color: var(--accent-gold);
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 6px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.text-input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--text-main);
+  padding: 10px 14px;
+  font-size: 12.5px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.text-input:focus {
+  border-color: var(--accent-gold);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+
+.range-slider-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.range-slider {
+  flex-grow: 1;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.08);
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.range-val {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-main);
+  min-width: 28px;
+  text-align: right;
+}
+
+/* Palette selector tiles */
+.palette-grid {
+  display: grid;
+  grid-template-cols: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.palette-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.palette-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--glass-border-hover);
+}
+
+.palette-btn.active {
+  border-color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.04);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
+}
+
+.palette-colors-row {
+  display: flex;
+  gap: 4px;
+}
+
+.palette-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.palette-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Sinking funds input cards */
+.funds-builder-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fund-input-item {
+  display: flex;
+  gap: 8px;
+}
+
+.fund-input-item input[type="text"] {
+  flex-grow: 1;
+}
+
+.fund-input-item input[type="number"] {
+  width: 80px;
+}
+
+/* --- Workspace Preview Area --- */
+.workspace-area {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.workspace-header {
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(6, 8, 20, 0.4);
+  backdrop-filter: blur(15px);
+  z-index: 5;
+}
+
+.workspace-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
+}
+
+.workspace-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Action button: Premium Island Button design */
+.premium-btn {
+  background: var(--text-main);
+  color: var(--bg-primary);
+  border: none;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 10px 22px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  font-family: inherit;
+  position: relative;
+}
+
+.premium-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.18);
+}
+
+.premium-btn:active {
+  transform: scale(0.98);
+}
+
+/* Inner trailing circle wrapper for icons */
+.btn-icon-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.premium-btn:hover .btn-icon-circle {
+  background: rgba(0, 0, 0, 0.1);
+  transform: translate(2px, -2px) scale(1.05);
+}
+
+.btn-icon-circle svg {
+  width: 11px;
+  height: 11px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* Secondary ghost action buttons */
+.ghost-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  padding: 10px 16px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ghost-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--glass-border-hover);
+}
+
+.ghost-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 1.5;
+}
+
+/* --- Preview Canvas Container --- */
+.preview-canvas {
+  flex-grow: 1;
+  overflow: auto;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: radial-gradient(circle at center, rgba(30, 41, 59, 0.15) 0%, rgba(15, 23, 42, 0.4) 100%);
+  position: relative;
+}
+
+/* Scrollable Container with custom zoom styling */
+.previews-scroll-wrapper {
+  transform-origin: top center;
+  transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-bottom: 80px;
+}
+
+.previews-scroll-wrapper.view-grid {
+  display: grid;
+  grid-template-cols: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1600px;
+}
+
+/* --- Printable Planner Page Card --- */
+.planner-page {
+  width: 8.27in; /* A4 width */
+  height: 11.69in; /* A4 height */
+  background-color: var(--print-bg);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Safety boundary line (visible on screen only, hidden in print) */
+.planner-page::before {
+  content: 'PRINT BOUNDARY (A4)';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 7px;
+  color: var(--print-primary);
+  opacity: 0.15;
+  letter-spacing: 1px;
+  font-weight: 700;
+  border: 1px dashed var(--print-primary);
+  padding: 2px 5px;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.page-content {
+  padding: 0.5in;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  color: var(--print-charcoal);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Premium Page Header Grid */
+.print-header {
+  border-bottom: 2px solid var(--print-primary);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.print-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.print-header-eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--print-gold);
+}
+
+.print-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--print-primary);
+  line-height: 1.1;
+}
+
+.print-header-desc {
+  font-size: 11px;
+  color: var(--print-text-muted);
+  font-style: italic;
+}
+
+.print-header-badge {
+  border: 1px solid var(--print-border-thick);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: var(--print-primary);
+  background: var(--print-card-bg);
+}
+
+/* Footer layout */
+.print-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--print-border);
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 8px;
+  color: var(--print-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.print-footer-num {
+  font-weight: 700;
+  color: var(--print-primary);
+}
+
+/* --- Page 1: Cover Page Layout --- */
+.cover-layout {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  border: 1px solid var(--print-border);
+  border-radius: 8px;
+  padding: 40px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.cover-crest {
+  color: var(--print-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cover-crest svg {
+  width: 140px;
+  height: 140px;
+  stroke-width: 1;
+}
+
+.cover-crest-monogram {
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -2px;
+  color: var(--print-gold);
+}
+
+.cover-titles {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.cover-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--print-gold);
+}
+
+.cover-titles h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: var(--print-primary);
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+.cover-divider {
+  width: 60px;
+  height: 1px;
+  background-color: var(--print-gold);
+  margin: 10px 0;
+}
+
+.cover-subtitle {
+  font-size: 12px;
+  color: var(--print-text-muted);
+  letter-spacing: 1px;
+}
+
+.cover-belongs-to {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.cover-belongs-to label {
+  font-size: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--print-text-muted);
+}
+
+.cover-owner-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--print-primary);
+  border-bottom: 1px dashed var(--print-primary);
+  padding-bottom: 4px;
+  min-width: 220px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cover-sparkle {
+  position: absolute;
+  color: var(--print-gold);
+}
+.cover-sparkle-1 { top: 20%; left: 20%; }
+.cover-sparkle-2 { bottom: 25%; right: 18%; }
+
+/* --- Page 2: Yearly Financial Road Map --- */
+.roadmap-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.roadmap-header-card {
+  background: var(--print-card-bg);
+  border: 1px solid var(--print-border);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.roadmap-header-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.roadmap-header-item label {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--print-gold);
+}
+
+.roadmap-header-item span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--print-primary);
+}
+
+.roadmap-timeline-container {
+  flex-grow: 1;
+  position: relative;
+  padding: 10px 0;
+}
+
+/* Timeline central line path */
+.roadmap-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  border-left: 1px dashed var(--print-primary);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.roadmap-grid {
+  display: grid;
+  grid-template-rows: repeat(12, 1fr);
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  gap: 8px;
+}
+
+.roadmap-node {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.roadmap-node:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.roadmap-node-card {
+  width: 45%;
+  background: var(--print-card-bg);
+  border: 1px solid var(--print-border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.roadmap-node-card h5 {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--print-primary);
+  text-transform: uppercase;
+}
+
+.roadmap-node-card p {
+  font-size: 9.5px;
+  color: var(--print-text-muted);
+  line-height: 1.3;
+}
+
+.roadmap-node-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--print-bg);
+  border: 2px solid var(--print-primary);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.roadmap-node-dot::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--print-gold);
+}
+
+/* --- Page 3: Monthly Budget Planner (3-Category Simplified) --- */
+.budget-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.budget-circle-row {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.budget-circle-box {
+  flex: 1;
+  background: var(--print-card-bg);
+  border: 1px solid var(--print-border);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.budget-circle-box h4 {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--print-primary);
+  text-align: center;
+}
+
+.budget-circle-graphics {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.budget-circle-val {
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--print-primary);
+}
+
+.budget-circle-box p {
+  font-size: 9px;
+  color: var(--print-text-muted);
+  text-align: center;
+}
+
+.budget-table-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.budget-table-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--print-gold);
+}
+
+.budget-ledger {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 4px;
+}
+
+.budget-ledger th, .budget-ledger td {
+  border: 1px solid var(--print-border);
+  padding: 7px 10px;
+  font-size: 10px;
+  text-align: left;
+}
+
+.budget-ledger th {
+  background: rgba(92, 110, 88, 0.05);
+  color: var(--print-primary);
+  font-weight: 700;
+}
+
+.budget-ledger td {
+  color: var(--print-charcoal);
+  height: 28px;
+}
+
+.budget-notes-box {
+  background: var(--print-card-bg);
+  border: 1px dashed var(--print-primary);
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 10px;
+  color: var(--print-text-muted);
+  line-height: 1.5;
+  margin-top: auto;
+}
+
+/* --- Page 4: Weekly "Impulse-Buster" Ledger --- */
+.impulse-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.impulse-tracker-card {
+  background: var(--print-card-bg);
+  border: 1px solid var(--print-border);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.impulse-instruction-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--print-primary);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.impulse-tracker-card p {
+  font-size: 10px;
+  color: var(--print-text-muted);
+  line-height: 1.4;
+}
+
+.impulse-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.impulse-table th, .impulse-table td {
+  border: 1px solid var(--print-border);
+  padding: 9px 12px;
+  font-size: 10px;
+  text-align: left;
+}
+
+.impulse-table th {
+  background: rgba(92, 110, 88, 0.05);
+  color: var(--print-primary);
+  font-weight: 700;
+}
+
+.impulse-table td {
+  height: 34px;
+}
+
+.checkbox-spot {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--print-primary);
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* --- Page 5: Daily Micro-Savings & HP (Health Points) Tracker --- */
+.daily-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+}
+
+.daily-header-desc {
+  background: var(--print-card-bg);
+  border: 1px solid var(--print-border);
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.daily-header-desc p {
+  font-size: 10.5px;
+  color: var(--print-text-muted);
+  line-height: 1.4;
+  max-width: 70%;
+}
+
+.daily-hp-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.daily-hp-metric label {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--print-gold);
+}
+
+.daily-hp-hearts {
+  display: flex;
+  gap: 4px;
+  color: #ef4444;
+}
+
+.daily-hp-hearts svg {
+  width: 13px;
+  height: 13px;
+}
+
+.daily-grid {
+  display: grid;
+  grid-template-cols: repeat(5, 1fr);
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.daily-day-card {
+  background: var(--print-card-bg);
+  border: 1px solid var(--print-border);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.daily-day-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.day-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--print-primary);
+}
+
+.daily-hp-bar {
+  display: flex;
+  gap: 1px;
+}
+
+.daily-hp-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #fca5a5;
+  border-radius: 50%;
+}
+
+.daily-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.daily-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 9px;
+  color: var(--print-charcoal);
+}
+
+.daily-save-label {
+  font-weight: 600;
+}
+
+.daily-save-input {
+  border-bottom: 1px solid var(--print-border);
+  width: 32px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 9px;
+}
+
+/* --- Page 6: 52-Week Savings Challenge Grid --- */
+.challenge-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.challenge-summary-bar {
+  background: var(--print-card-bg);
+  border: 1px solid var(--print-border);
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.challenge-summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.challenge-summary-item label {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--print-gold);
+}
+
+.challenge-summary-item span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--print-primary);
+}
+
+.challenge-grid-container {
+  display: grid;
+  grid-template-cols: repeat(4, 1fr);
+  gap: 8px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.week-box-item {
+  background: var(--print-card-bg);
+  border: 1px solid var(--print-border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.week-box-item.completed {
+  background: rgba(92, 110, 88, 0.08);
+  border-color: var(--print-primary);
+}
+
+.week-box-item.completed .box-checkbox {
+  background: var(--print-primary);
+  border-color: var(--print-primary);
+}
+
+.box-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.box-week-num {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--print-text-muted);
+}
+
+.box-week-amount {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--print-primary);
+}
+
+.box-checkbox {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--print-primary);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* --- Page 7: 100-Envelope Savings Vault Bento --- */
+.envelope-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.envelope-summary-card {
+  background: var(--print-card-bg);
+  border: 1px solid var(--print-border);
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.envelope-progress-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 40%;
+}
+
+.envelope-progress-label {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--print-gold);
+}
+
+.envelope-progress-bar-bg {
+  height: 5px;
+  background: rgba(92, 110, 88, 0.1);
+  border-radius: 3px;
+  width: 100%;
+}
+
+.envelope-progress-bar-fill {
+  height: 100%;
+  background: var(--print-primary);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+.envelope-bento-grid {
+  display: grid;
+  grid-template-cols: repeat(10, 1fr);
+  gap: 5px;
+  flex-grow: 1;
+}
+
+.envelope-tile {
+  background: var(--print-card-bg);
+  border: 1.5px solid var(--print-border);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 6px 0;
+  gap: 2px;
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.envelope-tile.completed {
+  background: rgba(92, 110, 88, 0.1);
+  border-color: var(--print-primary);
+}
+
+.envelope-tile svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--print-text-muted);
+  stroke-width: 1.5;
+  fill: none;
+  transition: all 0.3s ease;
+}
+
+.envelope-tile.completed svg {
+  stroke: var(--print-primary);
+  fill: rgba(92, 110, 88, 0.08);
+}
+
+.envelope-tile-num {
+  font-size: 9px;
+  font-weight: 800;
+  color: var(--print-primary);
+}
+
+/* --- Page 8: Sinking Funds Jars --- */
+.jars-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.jars-grid {
+  display: grid;
+  grid-template-cols: repeat(3, 1fr);
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.jar-item-card {
+  background: var(--print-card-bg);
+  border: 1px solid var(--print-border);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.jar-svg-container {
+  width: 100px;
+  height: 140px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jar-vector {
+  width: 100%;
+  height: 100%;
+  stroke: var(--print-primary);
+  stroke-width: 1.5;
+  fill: none;
+  z-index: 2;
+}
+
+.jar-liquid-fill {
+  position: absolute;
+  bottom: 8px;
+  width: 80px;
+  background: linear-gradient(to top, rgba(92, 110, 88, 0.12), rgba(92, 110, 88, 0.28));
+  border-top: 1px dashed var(--print-primary);
+  z-index: 1;
+  transition: height 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  border-radius: 0 0 16px 16px;
+}
+
+.jar-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.jar-label-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--print-primary);
+}
+
+.jar-label-metrics {
+  font-size: 9.5px;
+  color: var(--print-text-muted);
+}
+
+/* --- Page 9: Resiliency Reflection Journal --- */
+.journal-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.journal-prompt-card {
+  background: var(--print-card-bg);
+  border: 1px solid var(--print-border);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.journal-prompt-eyebrow {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--print-gold);
+  letter-spacing: 1px;
+}
+
+.journal-prompt-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--print-primary);
+}
+
+.journal-prompt-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.journal-line {
+  border-bottom: 1px dashed var(--print-border-thick);
+  height: 12px;
+}
+
+/* --- Responsive Layout Collapse for Mobile Preview Viewports (<768px) --- */
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+    height: auto;
+    flex-direction: column;
+  }
+  
+  .app-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .sidebar-panel {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  
+  .workspace-area {
+    height: auto;
+  }
+  
+  .workspace-header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+  
+  .preview-canvas {
+    padding: 16px;
+  }
+  
+  .previews-scroll-wrapper {
+    transform: scale(0.6) !important;
+    transform-origin: top center;
+  }
+}
+
+/* --- Direct Inline Editing & AI Console Styles --- */
+.direct-edit-active [contenteditable="true"] {
+  outline: 1px dashed var(--print-primary);
+  outline-offset: 2px;
+  cursor: text;
+  transition: all 0.2s ease;
+}
+
+.direct-edit-active [contenteditable="true"]:hover {
+  background: rgba(194, 157, 83, 0.08);
+  box-shadow: 0 0 4px rgba(194, 157, 83, 0.2);
+}
+
+.direct-edit-active [contenteditable="true"]:focus {
+  outline: 2px solid var(--print-gold);
+  background: rgba(194, 157, 83, 0.12);
+  box-shadow: 0 0 8px rgba(194, 157, 83, 0.4);
+}
+
+.pulse-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulse-glow 1.5s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(0.9); box-shadow: 0 0 2px #22c55e; }
+  100% { transform: scale(1.2); box-shadow: 0 0 10px #22c55e; }
+}
+
+.ai-terminal-output::-webkit-scrollbar {
+  width: 4px;
+}
+.ai-terminal-output::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+}
+.ai-terminal-output::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+}
+
+/* Roadmap Month Accordion Styling in Sidebar */
+.roadmap-accordion-container::-webkit-scrollbar {
+  width: 4px;
+}
+.roadmap-accordion-container::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+}
+.roadmap-accordion-container::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+}
+
+/* Inline Edit button active state visual indicators */
+#btn-edit-mode-toggle.active {
+  background: var(--print-primary) !important;
+  color: var(--print-bg) !important;
+  border-color: var(--print-primary) !important;
+  box-shadow: 0 0 12px rgba(194, 157, 83, 0.4);
+}
+
+#btn-edit-mode-toggle.active svg {
+  stroke: var(--print-bg) !important;
+}
+
+.ghost-btn svg {
+  transition: transform 0.2s ease;
+}
+.ghost-btn:hover svg {
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   5. Clean Printable Book Output Overrides
+   ========================================================================== */
+@media print {
+  /* Remove digital chrome elements entirely */
+  body, .app-container, .workspace-area, .preview-canvas, .previews-scroll-wrapper {
+    background: transparent !important;
+    background-color: #ffffff !important;
+    overflow: visible !important;
+    height: auto !important;
+    width: auto !important;
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: none !important;
+    position: static !important;
+  }
+  
+  .sidebar-panel,
+  .workspace-header,
+  .ambient-mesh,
+  .noise-overlay,
+  .planner-page::before {
+    display: none !important;
+  }
+  
+  /* Reset preview wrapper grid if grid view was active */
+  .previews-scroll-wrapper.view-grid {
+    display: block !important;
+  }
+  
+  /* Style planner sheet to strictly fit A4 page break output */
+  .planner-page {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    page-break-after: always !important;
+    page-break-inside: avoid !important;
+    margin: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    background-color: #ffffff !important;
+  }
+  
+  .page-content {
+    padding: 15mm !important;
+    box-sizing: border-box !important;
+  }
+  
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+}
