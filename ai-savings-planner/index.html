@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura - Premium AI Savings Planner Suite</title>
+  <!-- Premium old money/editorial google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;700&family=Outfit:wght@200;300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="ui-dark-mode">
+
+  <!-- Ambient Glow Backdrop -->
+  <div class="ambient-mesh">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+  </div>
+  <div class="noise-overlay"></div>
+
+  <div class="app-container">
+    
+    <!-- Left Sidebar: Controls & Configuration -->
+    <aside class="sidebar-panel">
+      <div class="sidebar-header">
+        <div class="brand-crest-wrapper">
+          <svg class="brand-crest-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v12M12 12h-4h8"/>
+          </svg>
+          <div>
+            <h1>AURA</h1>
+            <p class="subtitle">AI Savings Suite</p>
+          </div>
+        </div>
+        <button type="button" id="ui-theme-toggle" class="ui-theme-toggle-btn" title="Toggle Light/Dark Theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+
+      <!-- Controls Tab Buttons -->
+      <div class="sidebar-tabs">
+        <button type="button" class="tab-btn active" data-tab="manual-forms">Manual Forms</button>
+        <button type="button" class="tab-btn" data-tab="ai-advisor">AI Advisor</button>
+        <button type="button" class="tab-btn" data-tab="data-manager">Data</button>
+      </div>
+
+      <div class="sidebar-scroll">
+        
+        <!-- Tab 1: Manual Controls -->
+        <div class="tab-content" id="tab-manual-forms">
+          <!-- General Settings -->
+          <div class="double-bezel-card" style="margin-bottom: 16px;">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Global Targets</h3>
+              <div class="form-group">
+                <label for="input-owner-name">Belongs To Name</label>
+                <input type="text" id="input-owner-name" value="ALEXANDRIA VANE" class="text-input">
+              </div>
+              <div class="form-group">
+                <label for="input-monthly-income">Monthly Income ($)</label>
+                <input type="text" id="input-monthly-income" value="$4,000" class="text-input">
+              </div>
+              <div class="form-group">
+                <label for="input-yearly-target">Annual Savings Goal ($)</label>
+                <input type="text" id="input-yearly-target" value="$12,000" class="text-input">
+              </div>
+              <div class="form-group">
+                <label for="input-yearly-motive">Core Motivation</label>
+                <input type="text" id="input-yearly-motive" value="Financial Freedom & Peace of Mind" class="text-input">
+              </div>
+            </div>
+          </div>
+
+          <!-- Budget Sliders -->
+          <div class="double-bezel-card" style="margin-bottom: 16px;">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Budget Allocation Split</h3>
+              <div class="form-group">
+                <label for="range-fixed-pct">Fixed Needs %</label>
+                <div class="range-slider-group">
+                  <input type="range" id="range-fixed-pct" min="10" max="80" value="50" class="range-slider">
+                  <span class="range-val" id="val-fixed-pct">50%</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="range-save-pct">Future Savings %</label>
+                <div class="range-slider-group">
+                  <input type="range" id="range-save-pct" min="5" max="70" value="30" class="range-slider">
+                  <span class="range-val" id="val-save-pct">30%</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="range-flex-pct">Flex Spend % (Auto)</label>
+                <div class="range-slider-group">
+                  <input type="range" id="range-flex-pct" min="0" max="80" value="20" class="range-slider" disabled>
+                  <span class="range-val" id="val-flex-pct">20%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sinking Funds Editor -->
+          <div class="double-bezel-card" style="margin-bottom: 16px;">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Sinking Funds Jars</h3>
+              <div class="funds-builder-list" id="funds-builder-container">
+                <!-- 6 Jars Inputs dynamically rendered -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Monthly Roadmap Accordions -->
+          <div class="double-bezel-card" style="margin-bottom: 16px;">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Roadmap Monthly Details</h3>
+              <div class="roadmap-accordion-container" id="roadmap-accordion-container">
+                <!-- Month textual inputs will render dynamically here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Daily/Weekly configs -->
+          <div class="double-bezel-card">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Tracker Specific Defaults</h3>
+              <div class="form-group">
+                <label for="input-daily-habit-desc">Daily Quest Focus</label>
+                <textarea id="input-daily-habit-desc" class="text-input" style="height: 60px;">A gamified calendar designed to anchor savings habits. Log micro-saves and avoid impulse spendings!</textarea>
+              </div>
+              <div class="form-group">
+                <label for="input-daily-save-val">Default Daily Save ($)</label>
+                <input type="text" id="input-daily-save-val" value="$5" class="text-input">
+              </div>
+              <div class="form-group">
+                <label for="select-weekly-style">Weekly Deposit Scheme</label>
+                <select id="select-weekly-style" class="text-input">
+                  <option value="progressive">Progressive ($1, $2, ..., $52)</option>
+                  <option value="fixed">Fixed Weekly Goal (e.g. Target / 52)</option>
+                  <option value="double">Double Progressive ($2, $4, ..., $104)</option>
+                  <option value="custom">Custom Sequence</option>
+                </select>
+              </div>
+              <div class="form-group" id="group-custom-weekly" style="display: none;">
+                <label for="input-weekly-custom-list">Custom Weekly Values (comma separated)</label>
+                <input type="text" id="input-weekly-custom-list" value="10,20,30,40,50" class="text-input">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: AI Advisor Tab -->
+        <div class="tab-content" id="tab-ai-advisor" style="display: none;">
+          <div class="double-bezel-card" style="margin-bottom: 16px;">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">AI Blueprint Advisor</h3>
+              <p style="font-size:11px; color:var(--text-muted); margin-bottom:12px; line-height:1.4;">
+                Enter your details to generate a customized daily checklist, weekly savings velocity, sinking fund distributions, and monthly milestone cards.
+              </p>
+              <div class="form-group">
+                <label for="ai-monthly-income">Monthly Income ($)</label>
+                <input type="number" id="ai-monthly-income" value="4000" class="text-input">
+              </div>
+              <div class="form-group">
+                <label for="ai-savings-goal">Yearly Target Savings ($)</label>
+                <input type="number" id="ai-savings-goal" value="12000" class="text-input">
+              </div>
+              <div class="form-group">
+                <label for="ai-savings-persona">Savings Personality</label>
+                <select id="ai-savings-persona" class="text-input">
+                  <option value="balanced" selected>Balanced Saver (50/30/20 Rule)</option>
+                  <option value="aggressive">Aggressive Builder (30/60/10 Rule)</option>
+                  <option value="relaxed">Relaxed Frugalist (60/15/25 Rule)</option>
+                  <option value="extreme">Extreme Cash Vault (40/50/10 Rule)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ai-custom-needs">Focus / Triggers / Challenges</label>
+                <textarea id="ai-custom-needs" class="text-input" style="height: 70px;" placeholder="e.g. Cut down coffee, save for a Japan trip, reduce dining out."></textarea>
+              </div>
+              <button type="button" id="btn-generate-ai-plan" class="premium-btn" style="width:100%; justify-content:center; margin-top:8px;">
+                <span>Generate Plan</span>
+                <div class="btn-icon-circle">
+                  <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Simulated AI Console Output -->
+          <div class="double-bezel-card" id="ai-console-card" style="display: none;">
+            <div class="double-bezel-inner" style="background: rgba(10,12,15,0.95); border: 1px solid var(--neon-accent);">
+              <h4 style="font-size:10px; font-weight:700; color:var(--print-gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+                <span class="pulse-indicator"></span> AI Blueprint Engine
+              </h4>
+              <div class="ai-terminal-output" id="ai-terminal-output"></div>
+              <button type="button" id="btn-apply-ai-plan" class="premium-btn" style="width: 100%; justify-content: center; background: linear-gradient(135deg, var(--print-primary) 0%, var(--print-gold) 100%); display: none; margin-top: 10px;">
+                <span>Apply Plan to Dashboard</span>
+                <div class="btn-icon-circle">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Local Storage / Data Manager -->
+        <div class="tab-content" id="tab-data-manager" style="display: none;">
+          <div class="double-bezel-card">
+            <div class="double-bezel-inner">
+              <h3 class="form-section-title">Data Actions</h3>
+              <p style="font-size:11px; color:var(--text-muted); margin-bottom:12px; line-height:1.4;">
+                Persist your planner records. All checked items, day logs, and custom text inputs are saved automatically in your browser database.
+              </p>
+              
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <button type="button" id="btn-save-planner" class="premium-btn" style="justify-content: center; width: 100%;">
+                  <span>Save Planner State</span>
+                </button>
+                <button type="button" id="btn-clear-planner" class="ghost-btn" style="justify-content: center; width: 100%; border-color: #ef4444; color: #ef4444;">
+                  <span>Reset All Data</span>
+                </button>
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 8px 0;">
+                <button type="button" id="btn-export-json" class="ghost-btn" style="justify-content: center; width: 100%;">
+                  <span>Export JSON Backup</span>
+                </button>
+                <label class="ghost-btn" style="justify-content: center; width: 100%; text-align: center; cursor: pointer; display: block;">
+                  <span>Import JSON Backup</span>
+                  <input type="file" id="input-import-json" style="display: none;" accept=".json">
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- Right Main Area: Interactive Dashboards -->
+    <main class="workspace-area">
+      <header class="workspace-header">
+        <div class="header-left">
+          <h2>Planner Workspace</h2>
+          <p id="bind-header-subtitle">alexandria vane • $12,000 target</p>
+        </div>
+        
+        <div class="workspace-actions">
+          <button type="button" id="btn-edit-mode-toggle" class="ghost-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px; height:14px; margin-right:4px;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            <span>Direct Edit Mode: Off</span>
+          </button>
+
+          <!-- Tab Selector for Dashboard Views -->
+          <div class="dashboard-tabs">
+            <button type="button" class="dash-tab-btn active" data-dash="overview">Overview</button>
+            <button type="button" class="dash-tab-btn" data-dash="daily">Daily Habit</button>
+            <button type="button" class="dash-tab-btn" data-dash="weekly">Weekly Velocity</button>
+            <button type="button" class="dash-tab-btn" data-dash="yearly">Yearly Timeline</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="dashboard-canvas">
+        
+        <!-- View 1: Overview & Funds -->
+        <div class="dashboard-view active" id="dash-overview">
+          <div class="bento-grid">
+            <!-- Goal motive bento card -->
+            <div class="bento-item double-span flex-row-layout">
+              <div class="bento-crest">
+                <span id="bind-large-monogram">AV</span>
+              </div>
+              <div style="flex:1;">
+                <span class="eyebrow" style="text-transform: uppercase;">Yearly Mission Statement</span>
+                <h3 id="bind-card-motive" contenteditable="false">Financial Freedom & Peace of Mind</h3>
+                <p style="font-size: 12px; color: var(--text-muted); margin-top:4px;">Define your baseline priorities and align your income with automated future allocations.</p>
+              </div>
+            </div>
+
+            <!-- Budget split card -->
+            <div class="bento-item">
+              <span class="eyebrow">Monthly Split</span>
+              <div class="budget-circle-row">
+                <div class="budget-circle-box">
+                  <div class="budget-circle-graphics">
+                    <svg viewBox="0 0 100 100" width="60" height="60">
+                      <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.06)" stroke-width="4" fill="none"/>
+                      <circle id="circle-fixed" cx="50" cy="50" r="42" stroke="var(--print-primary)" stroke-width="6" fill="none" stroke-dasharray="263.89" stroke-dashoffset="131.9"/>
+                    </svg>
+                    <span class="circle-val" id="bind-fixed-pct">50%</span>
+                  </div>
+                  <span class="label">Fixed Needs</span>
+                  <span class="cash" id="bind-cash-fixed">$2,000.00</span>
+                </div>
+                <div class="budget-circle-box">
+                  <div class="budget-circle-graphics">
+                    <svg viewBox="0 0 100 100" width="60" height="60">
+                      <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.06)" stroke-width="4" fill="none"/>
+                      <circle id="circle-save" cx="50" cy="50" r="42" stroke="var(--print-primary)" stroke-width="6" fill="none" stroke-dasharray="263.89" stroke-dashoffset="184.7"/>
+                    </svg>
+                    <span class="circle-val" id="bind-save-pct">30%</span>
+                  </div>
+                  <span class="label">Savings</span>
+                  <span class="cash" id="bind-cash-save">$1,200.00</span>
+                </div>
+                <div class="budget-circle-box">
+                  <div class="budget-circle-graphics">
+                    <svg viewBox="0 0 100 100" width="60" height="60">
+                      <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.06)" stroke-width="4" fill="none"/>
+                      <circle id="circle-flex" cx="50" cy="50" r="42" stroke="var(--print-gold)" stroke-width="6" fill="none" stroke-dasharray="263.89" stroke-dashoffset="211.0"/>
+                    </svg>
+                    <span class="circle-val" id="bind-flex-pct">20%</span>
+                  </div>
+                  <span class="label">Flex Spend</span>
+                  <span class="cash" id="bind-cash-flex">$800.00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Jars Bento Area (spanning across the bottom) -->
+            <div class="bento-item triple-span">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <span class="eyebrow">Sinking Funds Jars</span>
+                <span style="font-size:10px; color:var(--text-muted); font-weight:700; text-transform:uppercase;">Visual Cash Reserves</span>
+              </div>
+              <div class="jars-grid" id="dashboard-jars-grid">
+                <!-- 6 SVG Jars rendered dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 2: Daily Habit Tracker -->
+        <div class="dashboard-view" id="dash-daily">
+          <div class="habit-header-card">
+            <div style="flex: 2;">
+              <span class="eyebrow">Habiteer Routine</span>
+              <h3 id="bind-daily-title">Daily Micro-Savings & HP Quest</h3>
+              <p id="bind-daily-desc">A gamified calendar designed to anchor savings habits. Every day, you start with 5 Health Points (hearts). Every time you spend money on a non-essential impulse item, cross off one heart. Fill in the No-Spend checkbox if you spend nothing beyond your fixed needs, and note down your daily micro-savings ($1, $5, or $10 saved from choosing not to buy coffee/snacks).</p>
+            </div>
+            <div class="hp-gauge-box">
+              <span class="eyebrow" style="text-align: right;">Day Completion Ratio</span>
+              <div class="completion-stats">
+                <span class="count-value" id="daily-completion-ratio">0 / 30</span>
+                <span class="subtext">Days Logged</span>
+              </div>
+            </div>
+          </div>
+          <div class="daily-grid" id="dashboard-daily-grid">
+            <!-- 30 Days dynamically generated here -->
+          </div>
+        </div>
+
+        <!-- View 3: Weekly Challenge Grid -->
+        <div class="dashboard-view" id="dash-weekly">
+          <div class="weekly-header-card">
+            <div style="flex:2;">
+              <span class="eyebrow">Weekly Savings Velocity</span>
+              <h3>52-Week Savings Challenge</h3>
+              <p>Check off the weeks as you successfully deposit the indicated amount into your savings reserve. Automate, scale, and track weekly velocity progress.</p>
+            </div>
+            <div class="weekly-metrics-row">
+              <div class="metric-box">
+                <span class="label">Final Target</span>
+                <span class="value" id="weekly-goal-target">$1,378</span>
+              </div>
+              <div class="metric-box">
+                <span class="label">Weeks Stashed</span>
+                <span class="value" id="weekly-weeks-count">0 / 52</span>
+              </div>
+              <div class="metric-box">
+                <span class="label">Total Stashed</span>
+                <span class="value" id="weekly-total-saved">$0.00</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="weekly-grid" id="dashboard-weekly-grid">
+            <!-- 52 weeks rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- View 4: Yearly Roadmap Timeline -->
+        <div class="dashboard-view" id="dash-yearly">
+          <div class="roadmap-header-card">
+            <div>
+              <span class="eyebrow">Yearly Highway</span>
+              <h3>12-Month Financial Roadmap</h3>
+              <p>Track your saving milestones cycle-by-cycle. Double-click or use forms to rewrite milestones to align with unexpected windfalls or budget pivots.</p>
+            </div>
+          </div>
+          <div class="roadmap-grid-wrapper">
+            <div class="roadmap-line"></div>
+            <div class="roadmap-grid" id="dashboard-roadmap-grid">
+              <!-- 12 months dynamically rendered -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
